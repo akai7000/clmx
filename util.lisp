@@ -4,8 +4,8 @@
 (in-package #:util)
 
 (defun digits (n)
-	(length (write-to-string n)))
-	
+    (length (write-to-string n)))
+    
 (defun replace-all (string part replacement &key (test #'char=))
     (with-output-to-string (out)
       (loop with part-length = (length part)
