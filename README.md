@@ -4,10 +4,10 @@ Matrix manipulation library for Common Lisp
 
 ### How to install
 
-`(ql:quickload "ak-matrix")`
+```
+(ql:quickload "ak-matrix")
+```
 
-
-[Link](url) and ![Image](src)
 
 ### How to use
 
@@ -15,6 +15,7 @@ To create a matrix:
 ```
 (ak:create-matrix :initial-contents '((1 2 3) (4 5 6)))
 ```
+
 
 ### Support or Contact
 

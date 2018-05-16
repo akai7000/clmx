@@ -10,6 +10,7 @@
   :source-control (:git "https://github.com/andrei12/ak-matrix.git")
   :serial t
   :components ((:file "package")
+               (:file "util")
                (:file "matrix"))
   :long-description
   #.(uiop:read-file-string
