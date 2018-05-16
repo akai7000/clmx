@@ -1,27 +1,11 @@
 # ak-matrix
-### _Andrei Kaplun_
 
 Matrix manipulation library for Common Lisp
 
-## License
-
-MIT
-
-
-
-
-## Welcome to **ak-matrix**
-
-
 ### How to install
 
-- (ql:quickload "ak-matrix")
-- List
+`(ql:quickload "ak-matrix")`
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
 
@@ -35,5 +19,5 @@ To create a matrix:
 ### Support or Contact
 
 Do you have a suggestion on how to improve **ak-matrix**? Found a bug you want to report?
-Please visit the **Issues** page (https://github.com/andrei12/ak-matrix/issues).
-[Issues](https://github.com/andrei12/ak-matrix/issues)
+Please visit the [Issues](https://github.com/andrei12/ak-matrix/issues) page.
+
