@@ -11,7 +11,5 @@
   :serial t
   :components ((:file "package")
                (:file "util")
-               (:file "matrix"))
-  :long-description
-  #.(uiop:read-file-string
-     (uiop:subpathname *load-pathname* "README.md")))
+			   (:file "array")
+               (:file "matrix")))

@@ -1,6 +1,8 @@
 ;;;; Various utilities
 ;;; util.lisp
 
+(in-package #:util)
+
 (defun digits (n)
 	(length (write-to-string n)))
 	

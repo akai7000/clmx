@@ -5,7 +5,7 @@ Matrix manipulation library for Common Lisp
 ### How to install
 
 ```
-(ql:quickload "ak-matrix")
+(ql:quickload :ak-matrix)
 ```
 
 
@@ -13,7 +13,12 @@ Matrix manipulation library for Common Lisp
 
 To create a matrix:
 ```
-(ak:create-matrix :initial-contents '((1 2 3) (4 5 6)))
+CL-USER> (mx:create-matrix :initial-contents '((1 2 3) (4 5 6) (7 8 9)))
+#<MX-MATRIX::MATRIX SIZE: (3 3)>
+| 1  2  3 |
+| 4  5  6 |
+| 7  8  9 |
+CL-USER> 
 ```
 
 
