@@ -98,15 +98,52 @@
 	(loop for row from 1 to (mheight matrix) collect
 		(ref matrix row col)))
 	
-	;;  |  1   2   3  |                  |  1   2   3  |
-;;  |  4   5   6  |   remove row 2   |  7   9  10  |
-;;  |  7   9  10  |       ==>        | 11  12  13  |
-;;  | 11  12  13  |
-
-
-;;(defun remove-column (matrix column)
-;;
-
 (defun is-square (matrix)
 	"Determine if the matrix is a square matrix."
 	(= (mwidth matrix) (mheight matrix)))
+
+;; The following 4 functions are used for calculating determinants
+(defun remove-elt-from-list (list elt)
+	(append (subseq list 0 elt) (nthcdr (1+ elt) list)))
+
+(defun remove-first-row (matrix)
+	(let ((data (slot-value matrix 'data-array)))
+		 (create-matrix :initial-contents (cdr (mx-array:array-to-list data)))))
+
+(defun remove-column (matrix col-num)
+	(let ((data-list (mx-array:array-to-list (slot-value matrix 'data-array))))
+		 (create-matrix :initial-contents
+			(mapcar #'(lambda (list) (remove-elt-from-list list (1- col-num))) data-list))))
+			
+(defun det (matrix)
+	"Calculate determinant of a square matrix."
+	(let ((w (mwidth matrix)))
+		(if (is-square matrix)
+			(cond ((= w 1) (ref matrix 1 1))
+				  ((= w 2) (- (* (ref matrix 1 1) (ref matrix 2 2))
+							  (* (ref matrix 1 2) (ref matrix 2 1))))
+				  ((= w 3) (+ (- (* (ref matrix 1 1) (det (remove-column (remove-first-row matrix) 1)))
+							     (* (ref matrix 1 2) (det (remove-column (remove-first-row matrix) 2))))
+							  (* (ref matrix 1 3) (det (remove-column (remove-first-row matrix) 3)))))
+				  (t t))
+			(error "Matrix dimensions do not match."))))
+
+(defun r*c (matrix-1 matrix-2 row col)
+	(apply #'+
+		(mapcar #'*
+			(extract-row-as-list matrix-1 row)
+			(extract-column-as-list matrix-2 col))))
+
+(defun multiply-matrices (matrix-1 matrix-2)
+	"Multiply matrices."
+	(let ((w1 (mwidth matrix-1))
+		  (h1 (mheight matrix-1))
+		  (w2 (mwidth matrix-2))
+		  (h2 (mheight matrix-2)))
+		 (if (= w1 h2)
+			 (create-matrix :initial-contents
+				(loop for row from 1 to h1 collect
+					(loop for col from 1 to w2 collect
+						(r*c matrix-1 matrix-2 row col))))
+			 "cannot multiply: dimensions do not match")))
+			 
