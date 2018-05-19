@@ -147,3 +147,11 @@
                         (r*c matrix-1 matrix-2 row col))))
              "cannot multiply: dimensions do not match")))
              
+(defun transpose (matrix)
+	"Find the transpose of the matrix."
+	(format t "Not implemented yet."))
+    
+(defun inverse (matrix)
+	"Find the inverse of the matrix."
+	(format t "Not implemented yet."))
+	
