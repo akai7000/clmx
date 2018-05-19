@@ -1,7 +1,4 @@
 # ak-matrix
-AK2D
-
-
 
 Matrix (2-D tensor) manipulation library for Common Lisp
 
@@ -25,7 +22,7 @@ CL-USER> (mx:create-matrix :initial-contents '((1 2 3) (4 5 6) (7 8 9)))
 CL-USER> 
 ```
 
-Let's create two matrices and store them in variables:
+Let's create two square matrices and store them in variables:
 ```
 CL-USER> (defparameter m1 (mx:create-matrix :initial-contents '((3 -2 0) (7 3 1) (0 2 4))))
 M1
@@ -42,19 +39,31 @@ CL-USER> m1
 | 0   2  4 |
 CL-USER> 
 
+CL-USER> m2
 #<MX-MATRIX::MATRIX SIZE: (3 3)>
-| 3  -2  0 |
-| 7   3  1 |
-| 0   2  4 |
+|  1   5  4 |
+| -3  -4  2 |
+|  1   1  0 |
 CL-USER> 
 ```
 
-Now let's add the matrices
+Let's add the matrices m1 and m2:
 ```
+CL-USER> (mx:add-matrices m1 m2)
 #<MX-MATRIX::MATRIX SIZE: (3 3)>
-| 3  -2  0 |
-| 7   3  1 |
-| 0   2  4 |
+| 4   3  4 |
+| 4  -1  3 |
+| 1   3  4 |
+CL-USER> 
+```
+
+Let's multiply the matrices:
+```
+CL-USER> (mx:multiply-matrices m1 m2)
+#<MX-MATRIX::MATRIX SIZE: (3 3)>
+|  9  23   8 |
+| -1  24  34 |
+| -2  -4   4 |
 CL-USER> 
 ```
 
