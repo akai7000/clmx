@@ -47,6 +47,13 @@ CL-USER> m2
 CL-USER> 
 ```
 
+To reference a specific element of the matrix use _ref_ function. Note that the count starts at 1, not at 0.  Think like a mathematician, not a computer scientist.
+```
+CL-USER> (mx:ref m1 1 2)
+-2
+CL-USER> 
+```
+
 Let's add the matrices m1 and m2:
 ```
 CL-USER> (mx:add-matrices m1 m2)
@@ -81,9 +88,10 @@ CL-USER> (mx:mwidth m1)
 CL-USER> 
 ```
 
+
 ### More on create-matrix
 
-Besides the list the create-matrix function also takes an _array_ in initial-contents argument:
+Besides the _list_ the `create-matrix` function also takes an _array_ in `initial-contents` argument:
 ```
 CL-USER> (mx:create-matrix :initial-contents #2A ((1 2 3) (4 5 6)))
 #<MX-MATRIX::MATRIX SIZE: (2 3)>
@@ -92,7 +100,7 @@ CL-USER> (mx:create-matrix :initial-contents #2A ((1 2 3) (4 5 6)))
 CL-USER> 
 ```
 
-Another way to create matrices is by specifying a dimensions and initial-element arguments to **create-matrix** function:
+Another way to create matrices is by specifying a dimensions and initial-element arguments to `create-matrix` function:
 ```
 CL-USER> (mx:create-matrix :dimensions '(3 5) :initial-element 7)
 #<MX-MATRIX::MATRIX SIZE: (3 5)>
@@ -135,7 +143,7 @@ CL-USER> (mx:identity-matrix 5)
 CL-USER> 
 ```
 
-Strictly speaking identity matrix has to be a square matrix, but if you need to create a rectangular matrix which has ones along the "main" diagonal and zeros everywhere else. An optional argument _width_ lets you do that:
+Strictly speaking identity matrix has to be a square matrix, but if you need to create a rectangular matrix which has ones along the "main" diagonal and zeros everywhere else then an optional argument _width_ lets you do that:
 ```
 CL-USER> (mx:identity-matrix 4 6)
 #<MX-MATRIX::MATRIX SIZE: (4 6)>
