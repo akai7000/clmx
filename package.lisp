@@ -29,6 +29,7 @@
            :zeros
            :ones
            :ref
+           :identity-matrix
            :add-matrices
            :add-scalar
            :multiply-scalar

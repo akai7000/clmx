@@ -23,6 +23,7 @@
 )
       
 (defmethod print-object ((object matrix) stream)
+  "Prints the matrix in a nice readable format"
   (print-unreadable-object (object stream :type t)
     (with-slots (data-array size) object
       (format stream "SIZE: ~a" size)
@@ -66,7 +67,7 @@
     "Set a value from MATRIX at row HEIGHT and column WIDTH."
     (setf (aref (slot-value matrix 'data-array) (1- height) (1- width)) value))
     
-(defun eye (height width)
+(defun identity-matrix (height &optional (width height))
     "Create an identity matrix."
     (let ((matrix (zeros height width)))
          (loop for col from 1 to (min height width) do
