@@ -12,15 +12,22 @@ _(this is not working yet; I'm yet to submit it to quicklisp)_
 
 ### Quick Start
 
-To create a matrix you can pass a list as initial-contents argument to create-matrix function:
+Switch to "mx-matrix" package:
 ```
+CL-USER> (in-package :mx-matrix)
+#<PACKAGE "MX-MATRIX">
+MX>
+```
+
+To create a matrix you can pass a list as initial-contents argument to create-matrix function:
+#+BEGIN_SRC lisp
 CL-USER> (mx:create-matrix :initial-contents '((1 2 3) (4 5 6) (7 8 9)))
 #<MX-MATRIX::MATRIX SIZE: (3 3)>
 | 1  2  3 |
 | 4  5  6 |
 | 7  8  9 |
 CL-USER> 
-```
+#+END_SRC
 
 Let's create two square matrices and store them in variables:
 ```
