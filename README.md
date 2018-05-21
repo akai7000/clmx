@@ -20,14 +20,14 @@ MX>
 ```
 
 To create a matrix you can pass a list as initial-contents argument to create-matrix function:
-#+BEGIN_SRC lisp
+```lisp
 CL-USER> (mx:create-matrix :initial-contents '((1 2 3) (4 5 6) (7 8 9)))
 #<MX-MATRIX::MATRIX SIZE: (3 3)>
 | 1  2  3 |
 | 4  5  6 |
 | 7  8  9 |
 CL-USER> 
-#+END_SRC
+```
 
 Let's create two square matrices and store them in variables:
 ```
