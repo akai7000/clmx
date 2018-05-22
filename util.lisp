@@ -1,7 +1,7 @@
 ;;;; Various utilities
 ;;; util.lisp
 
-(in-package #:util)
+(in-package #:mxcl-util)
 
 (defun digits (n)
     (length (write-to-string n)))

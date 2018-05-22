@@ -1,7 +1,7 @@
 ;;;; Matrix library
 ;;; matrix.lisp
 
-(in-package #:mx)
+(in-package #:mxcl-matrix)
 
 (defclass matrix ()
    ((data-array
