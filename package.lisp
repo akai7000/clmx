@@ -26,8 +26,8 @@
   (:export :create-matrix
            :mheight
            :mwidth
-           :zeros
-           :ones
+           :zero-matrix
+           :unit-matrix
            :ref
            :identity-matrix
            :add-matrices

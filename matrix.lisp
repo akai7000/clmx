@@ -51,11 +51,11 @@
     "Get the width of MATRIX (number of columns)"
     (cadr (slot-value matrix 'size)))
       
-(defun zeros (height width)
+(defun zero-matrix (height width)
     "Create a zero-filled 2-dimensional matrix."
     (create-matrix :dimensions (list height width) :initial-element 0))
     
-(defun ones (height width)
+(defun unit-matrix (height width)
     "Create a 2-dimensional matrix filled with 1's."
     (create-matrix :dimensions (list height width) :initial-element 1))
     
@@ -69,7 +69,7 @@
     
 (defun identity-matrix (height &optional (width height))
     "Create an identity matrix."
-    (let ((matrix (zeros height width)))
+    (let ((matrix (zero-matrix height width)))
          (loop for col from 1 to (min height width) do
             (set-value matrix col col 1))
          matrix))
@@ -109,10 +109,10 @@
 
 (defun remove-first-row (matrix)
     (let ((data (slot-value matrix 'data-array)))
-         (create-matrix :initial-contents (cdr (mx-array:array-to-list data)))))
+         (create-matrix :initial-contents (cdr (mxcl-array:array-to-list data)))))
 
 (defun remove-column (matrix col-num)
-    (let ((data-list (mx-array:array-to-list (slot-value matrix 'data-array))))
+    (let ((data-list (mxcl-array:array-to-list (slot-value matrix 'data-array))))
          (create-matrix :initial-contents
             (mapcar #'(lambda (list) (remove-elt-from-list list (1- col-num))) data-list))))
             

@@ -108,7 +108,7 @@ MX> (create-matrix :dimensions '(3 5) :initial-element 7)
 ### Special matrices
 To create a matrix filled with zeros:
 ```lisp
-MX> (zeros 3 4)
+MX> (zero-matrix 3 4)
 #<MXCL::MATRIX SIZE: (3 4)>
 | 0  0  0  0 |
 | 0  0  0  0 |
@@ -117,7 +117,7 @@ MX> (zeros 3 4)
 
 Matrix filled with ones:
 ```lisp
-MX> (ones 3 4)
+MX> (unit-matrix 3 4)
 #<MXCL::MATRIX SIZE: (3 4)>
 | 1  1  1  1 |
 | 1  1  1  1 |
