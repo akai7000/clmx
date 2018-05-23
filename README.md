@@ -110,8 +110,8 @@ MX> (transpose m1)
 ```
 
 Let's find the inverse of a matrix:
-MX> (inverse m1)
 ```lisp
+MX> (inverse m1)
 [Not implemented yet]
 ```
 
