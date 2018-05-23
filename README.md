@@ -73,15 +73,15 @@ MX> (multiply-matrices m1 m2)
 | -2  -4   4 |
 ```
 
-To find the number of rows (height of the matrix):
+To find the number of rows of a matrix:
 ```lisp
-MX> (mheight m1)
+MX> (rows m1)
 3
 ```
 
-Similarly, the number of columns (width of the matrix):
+Similarly, the number of columns of a matrix:
 ```lisp
-MX> (mwidth m1)
+MX> (cols m1)
 3
 ```
 
