@@ -12,10 +12,10 @@ _(this is not working yet; I'm yet to submit it to quicklisp)_
 
 ### Quick Start
 
-Switch to "mxcl" package:
+Switch to "mxcl-matrix" package:
 ```lisp
-CL-USER> (in-package :mxcl)
-#<PACKAGE "MXCL">
+CL-USER> (in-package :mx)
+#<PACKAGE "MXCL-MATRIX">
 MX>
 ```
 
@@ -85,6 +85,41 @@ MX> (cols m1)
 3
 ```
 
+Now, let's add a scalar to a matrix:
+```lisp
+MX> (add-scalar m1 10)
+#<MATRIX SIZE: (3 3)>
+| 13   8  10 |
+| 17  13  11 |
+| 10  12  14 |
+```
+
+We can also multiply by a scalar:
+```lisp
+MX> (multiply-scalar m1 10)
+#<MATRIX SIZE: (3 3)>
+| 30  -20   0 |
+| 70   30  10 |
+|  0   20  40 |
+```
+
+To find a transpose of a matrix you can use `transpose` function:
+```lisp
+MX> (transpose m1)
+[Not implemented yet]
+```
+
+Let's find the inverse of a matrix:
+MX> (inverse m1)
+```lisp
+[Not implemented yet]
+```
+
+We can also find a determinant of a square matrix:
+```lisp
+MX> (det m1)
+86
+```
 
 ### More on create-matrix
 
@@ -157,6 +192,7 @@ MX> (identity-matrix 6 4)
 | 0  0  0  0 |
 ```
 
+## Please see to full documentation _here_.
 
 ### Support or Contact
 
