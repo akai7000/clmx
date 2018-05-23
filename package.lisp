@@ -24,8 +24,8 @@
   (:nicknames #:mx)
   (:use :common-lisp :mxcl-array)
   (:export :create-matrix
-           :mheight
-           :mwidth
+           :rows
+           :cols
            :zero-matrix
            :unit-matrix
            :ref

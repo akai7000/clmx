@@ -13,7 +13,7 @@
      :initarg :size
      :initform '(0 0)
      :reader size
-     :documentation "The size of the matrix (height width)")))
+     :documentation "The size of the matrix (rows cols)")))
      
 (defgeneric (setf data-array) (data matrix))
 
@@ -43,35 +43,35 @@
                   (t (error "INITIAL-CONTENTS or DIMENSIONS must be specified")))))
            (make-instance 'matrix :data-array data-array :size (list (height data-array) (width data-array)))))
       
-(defun mheight (matrix)
-    "Get the height of MATRIX (number of rows)"
+(defun rows (matrix)
+    "Get the number of rows of a matrix."
     (car (slot-value matrix 'size)))
       
-(defun mwidth (matrix)
-    "Get the width of MATRIX (number of columns)"
+(defun cols (matrix)
+    "Get the number of columns of a matrix."
     (cadr (slot-value matrix 'size)))
       
-(defun zero-matrix (height width)
+(defun zero-matrix (num-rows num-cols)
     "Create a zero-filled 2-dimensional matrix."
-    (create-matrix :dimensions (list height width) :initial-element 0))
+    (create-matrix :dimensions (list num-rows num-cols) :initial-element 0))
     
-(defun unit-matrix (height width)
+(defun unit-matrix (num-rows num-cols)
     "Create a 2-dimensional matrix filled with 1's."
-    (create-matrix :dimensions (list height width) :initial-element 1))
+    (create-matrix :dimensions (list num-rows num-cols) :initial-element 1))
     
-(defun ref (matrix height width)
-    "Get a value from MATRIX at row HEIGHT and column WIDTH."
-    (aref (slot-value matrix 'data-array) (1- height) (1- width)))
+(defun ref (matrix row col)
+    "Get a value from a matrix at row 'row' and column 'col'."
+    (aref (slot-value matrix 'data-array) (1- row) (1- col)))
     
-(defun set-value (matrix height width value)
-    "Set a value from MATRIX at row HEIGHT and column WIDTH."
-    (setf (aref (slot-value matrix 'data-array) (1- height) (1- width)) value))
+(defun set-value! (matrix row col value)
+    "Set a value of a matrix at row 'row' and column 'col'. This function has side effects."
+    (setf (aref (slot-value matrix 'data-array) (1- row) (1- col)) value))
     
-(defun identity-matrix (height &optional (width height))
+(defun identity-matrix (num-rows &optional (num-cols num-rows))
     "Create an identity matrix."
-    (let ((matrix (zero-matrix height width)))
-         (loop for col from 1 to (min height width) do
-            (set-value matrix col col 1))
+    (let ((matrix (zero-matrix num-rows num-cols)))
+         (loop for col from 1 to (min num-rows num-cols) do
+            (set-value! matrix col col 1))
          matrix))
          
 (defun add-matrices (matrix-1 matrix-2)
@@ -89,19 +89,19 @@
         (create-matrix :initial-contents (scalar* data scalar))))
 
 (defun extract-row-as-list (matrix row)
-    (loop for col from 1 to (mwidth matrix) collect
+    (loop for col from 1 to (cols matrix) collect
         (ref matrix row col)))
             
 (defun extract-row-as-vector (matrix row)
     (list-to-array (extract-row-as-list matrix row)))
     
 (defun extract-column-as-list (matrix col)
-    (loop for row from 1 to (mheight matrix) collect
+    (loop for row from 1 to (rows matrix) collect
         (ref matrix row col)))
     
 (defun is-square (matrix)
     "Determine if the matrix is a square matrix."
-    (= (mwidth matrix) (mheight matrix)))
+    (= (cols matrix) (rows matrix)))
 
 ;; The following 4 functions are used for calculating determinants
 (defun remove-elt-from-list (list elt)
@@ -118,7 +118,7 @@
             
 (defun det (matrix)
     "Calculate determinant of a square matrix."
-    (let ((w (mwidth matrix)))
+    (let ((w (cols matrix)))
         (if (is-square matrix)
             (cond ((= w 1) (ref matrix 1 1))
                   ((= w 2) (- (* (ref matrix 1 1) (ref matrix 2 2))
@@ -137,10 +137,10 @@
 
 (defun multiply-matrices (matrix-1 matrix-2)
     "Multiply matrices."
-    (let ((w1 (mwidth matrix-1))
-          (h1 (mheight matrix-1))
-          (w2 (mwidth matrix-2))
-          (h2 (mheight matrix-2)))
+    (let ((w1 (cols matrix-1))
+          (h1 (rows matrix-1))
+          (w2 (cols matrix-2))
+          (h2 (rows matrix-2)))
          (if (= w1 h2)
              (create-matrix :initial-contents
                 (loop for row from 1 to h1 collect
