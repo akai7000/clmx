@@ -194,8 +194,14 @@ MX> (identity-matrix 6 4)
 | 0  0  0  0 |
 ```
 
-## Please see to full documentation _here_.
 
+### More resources
+
+   - Tutorial
+   - Function Reference
+   - mxcl website
+
+   
 ### Support or Contact
 
 Do you have a suggestion on how to improve **ak-matrix**? Found a bug you want to report?
