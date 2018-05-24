@@ -1,6 +1,6 @@
 # mxcl 0.0.1
 
-https://travis-ci.com/akai7000/mxcl.svg?branch=master
+![build status](https://travis-ci.com/akai7000/mxcl.svg?branch=master)
 
 Matrix manipulation library for Common Lisp
 
