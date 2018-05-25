@@ -38,4 +38,26 @@ MX> (add-matrices
 | 11/15  1   |
 ```
 
-	
+### `add-scalar`
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+`MATRIX` | matrix | Matrix to add a scalar to
+`NUMBER` | scalar | Scalar to be added to matrix
+
+#### Returns
+`MATRIX`
+
+#### Description
+Add scalar to a matrix.
+
+#### Examples
+```lisp
+MX> (add-scalar
+     (create-matrix :initial-contents '((1 2 3) (4 5 6)))
+     100)
+#<MATRIX SIZE: (2 3)>
+| 101  102  103 |
+| 104  105  106 |
+```
