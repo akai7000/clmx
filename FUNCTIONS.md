@@ -1,6 +1,5 @@
 # Function Reference
 
--------------------------------------------------
 ### `add-matrices`
 
 #### Arguments
@@ -39,7 +38,8 @@ MX> (add-matrices
 | 11/15  1   |
 ```
 
-================================================
+
+-------------------------------------------------
 ### `add-scalar`
 
 #### Arguments
@@ -62,4 +62,33 @@ MX> (add-scalar
 #<MATRIX SIZE: (2 3)>
 | 101  102  103 |
 | 104  105  106 |
+```
+
+
+-------------------------------------------------
+### `cols`
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+`MATRIX` | matrix | Matrix
+
+#### Returns
+`INTEGER`
+
+#### Description
+Get the number of columns of a matrix.
+
+#### Examples
+```lisp
+MX> (cols 
+     (create-matrix :dimensions '(100 50) :initial-element 3))
+50
+
+MX> (cols (zero-matrix 15 20))
+20
+
+MX> (cols 
+     (create-matrix :initial-contents '((1 2 3 4 5) (6 7 8 9 10))))
+5
 ```
