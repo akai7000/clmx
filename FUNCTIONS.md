@@ -1,13 +1,12 @@
 # Function Reference
 
-#### Name
-`add-matrices`
+### `add-matrices`
 
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
 `MATRIX` | matrix-1
-`MATRIX` | matrix-1
+`MATRIX` | matrix-2
 
 #### Returns
 `MATRIX`
