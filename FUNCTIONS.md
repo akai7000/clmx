@@ -5,14 +5,14 @@
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
-`MATRIX` | matrix-1
-`MATRIX` | matrix-2
+`MATRIX` | matrix-1 | First matrix
+`MATRIX` | matrix-2 | Second matrix
 
 #### Returns
 `MATRIX`
 
 #### Description
-Add two matrices together.
+Adds two matrices matrix-1 and matrix-2 together.
 
 #### Examples
 ```lisp
