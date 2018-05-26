@@ -9,10 +9,12 @@
   :bug-tracker "https://github.com/akai7000/mxcl/issues"
   :source-control (:git "https://github.com/akai7000/mxcl.git")
   :serial t
-  :components ((:file "package")
-               (:file "util")
-               (:file "array")
-               (:file "matrix")))
+  :components ((:module "test"
+                :serial t
+				:components ((:file "package")
+                             (:file "util")
+                             (:file "array")
+                             (:file "matrix"))))
 
 (asdf:defsystem #:mxcl/test
   :description "Tests for MXCL library"
