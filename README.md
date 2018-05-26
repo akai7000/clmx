@@ -198,7 +198,7 @@ MX> (identity-matrix 6 4)
 ### More resources
 
    - Tutorial
-   - Function Reference
+   - [Function Reference](https://github.com/akai7000/mxcl/blob/master/FUNCTIONS.md)
    - mxcl website
 
    
