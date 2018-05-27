@@ -1,13 +1,13 @@
 ;;;; test/main.lisp
 
-(in-package #:mxcl-test)
+(in-package #:clmx-test)
 
 (def-suite all-tests
-    :description "The master suite of all mxcl tests.")
+    :description "The master suite of all CLMX tests.")
 
 (in-suite all-tests)
 
-(defun test-mxcl ()
+(defun test-clmx ()
   (run! 'all-tests))
 
 (test test-create-matrix

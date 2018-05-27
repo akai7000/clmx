@@ -1,7 +1,7 @@
 ;;;; Arrays
 ;;; array.lisp
 
-(in-package #:mxcl-array)
+(in-package #:clmx-array)
 
 (defun create-default-array (height width &optional default-value)
     (make-array (list height width)

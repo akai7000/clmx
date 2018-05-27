@@ -1,13 +1,13 @@
-;;;; ak-matrix.asd
+;;;; cl-mx.asd
 
-(asdf:defsystem #:mxcl
+(asdf:defsystem #:clmx
   :description "Matrix manipulation library for Common Lisp"
   :author "Andrei Kaplun"
   :license  "MIT"
   :version "0.0.1"
-  :homepage "https://akai7000.github.io/mxcl/"
-  :bug-tracker "https://github.com/akai7000/mxcl/issues"
-  :source-control (:git "https://github.com/akai7000/mxcl.git")
+  :homepage "https://akai7000.github.io/clmx/"
+  :bug-tracker "https://github.com/akai7000/clmx/issues"
+  :source-control (:git "https://github.com/akai7000/clmx.git")
   :serial t
   :components ((:module "src"
                 :serial t
@@ -16,12 +16,12 @@
                              (:file "array")
                              (:file "matrix")))))
 
-(asdf:defsystem #:mxcl/test
-  :description "Tests for MXCL library"
+(asdf:defsystem #:clmx/test
+  :description "Tests for CL-MX library"
   :author "Andrei Kaplun"
   :license  "MIT"
   :version "0.0.1"
-  :depends-on (:mxcl :fiveam)
+  :depends-on (:clmx :fiveam)
   :components ((:module "test"
                 :serial t
                 :components ((:file "package")

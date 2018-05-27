@@ -1,7 +1,7 @@
 ;;;; Matrix library
 ;;; matrix.lisp
 
-(in-package #:mxcl-matrix)
+(in-package #:clmx-matrix)
 
 (defclass matrix ()
    ((data-array
@@ -109,10 +109,10 @@
 
 (defun remove-first-row (matrix)
     (let ((data (slot-value matrix 'data-array)))
-         (create-matrix :initial-contents (cdr (mxcl-array:array-to-list data)))))
+         (create-matrix :initial-contents (cdr (clmx-array:array-to-list data)))))
 
 (defun remove-column (matrix col-num)
-    (let ((data-list (mxcl-array:array-to-list (slot-value matrix 'data-array))))
+    (let ((data-list (clmx-array:array-to-list (slot-value matrix 'data-array))))
          (create-matrix :initial-contents
             (mapcar #'(lambda (list) (remove-elt-from-list list (1- col-num))) data-list))))
             

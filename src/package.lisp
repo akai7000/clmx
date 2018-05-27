@@ -1,12 +1,12 @@
 ;;;; package.lisp
 
-(defpackage :mxcl-util
+(defpackage :clmx-util
   (:use #:cl)
   (:export :digits
            :replace-all))
 
-(defpackage :mxcl-array
-  (:use :common-lisp :mxcl-util)
+(defpackage :clmx-array
+  (:use :common-lisp :clmx-util)
   (:export :create-default-array
            :list-to-array
 		   :array-to-list
@@ -20,9 +20,9 @@
            :format-array
            :add-arrays))
            
-(defpackage :mxcl-matrix
-  (:nicknames #:mx)
-  (:use :common-lisp :mxcl-array)
+(defpackage :clmx-matrix
+  (:nicknames #:clmx #:mx)
+  (:use :common-lisp :clmx-array)
   (:export :create-matrix
            :rows
            :cols

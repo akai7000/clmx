@@ -22,4 +22,4 @@ script:
                  (lambda (c h)
                    (declare (ignore c h))
                    (uiop:quit -1)))'
-       -e '(ql:quickload :mxcl/test)'
+       -e '(ql:quickload :clmx/test)'

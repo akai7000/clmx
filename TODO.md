@@ -16,3 +16,4 @@
 - [ ] Write function to find eigenvector
 - [ ] Make eigenvalues function work with 3x3 matrices
 - [ ] Make eigenvalues function work with large matrices
+- [ ] Rename the project to CLMX 
