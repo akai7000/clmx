@@ -1,4 +1,4 @@
-# mxcl 0.0.1
+# mxcl 0.0.17
 
 ![build status](https://travis-ci.com/akai7000/mxcl.svg?branch=master)
 
@@ -200,10 +200,11 @@ MX> (identity-matrix 6 4)
    - Tutorial
    - [Function Reference](https://github.com/akai7000/mxcl/blob/master/FUNCTIONS.md)
    - mxcl website
+   - Solve problems with mxcl
 
    
 ### Support or Contact
 
-Do you have a suggestion on how to improve **ak-matrix**? Found a bug you want to report?
-Please visit the [Issues](https://github.com/andrei12/ak-matrix/issues) page.
+Do you have a suggestion on how to improve **mxcl**? Found a bug you want to report?
+Please visit the [Issues](https://github.com/akai7000/mxcl/issues) page.
 

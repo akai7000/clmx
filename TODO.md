@@ -6,6 +6,7 @@
 - [ ] Fix the formatting of the matrix if it contains decimals, fractions, and for negative numbers
 - [ ] Move source code to /src
 - [ ] Implement `identity-matrix-p`
+- [ ] Implement `square-matrix-p`
 - [ ] Implement `triangular-matrix-p`
 - [ ] Implement `singular-matrix-p`
 - [ ] Implement `left-stochastic-matrix-p`

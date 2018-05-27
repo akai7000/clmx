@@ -18,3 +18,6 @@
                              :end (or pos (length string)))
             when pos do (write-string replacement out)
             while pos)))
+			
+(defun intp (number)
+	(= number (round number)))

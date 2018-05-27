@@ -99,7 +99,7 @@
     (loop for row from 1 to (rows matrix) collect
         (ref matrix row col)))
     
-(defun is-square (matrix)
+(defun square-matrix-p (matrix)
     "Determine if the matrix is a square matrix."
     (= (cols matrix) (rows matrix)))
 
@@ -119,15 +119,15 @@
 (defun det (matrix)
     "Calculate determinant of a square matrix."
     (let ((w (cols matrix)))
-        (if (is-square matrix)
+        (if (square-matrix-p matrix)
             (cond ((= w 1) (ref matrix 1 1))
                   ((= w 2) (- (* (ref matrix 1 1) (ref matrix 2 2))
                               (* (ref matrix 1 2) (ref matrix 2 1))))
                   ((= w 3) (+ (- (* (ref matrix 1 1) (det (remove-column (remove-first-row matrix) 1)))
                                  (* (ref matrix 1 2) (det (remove-column (remove-first-row matrix) 2))))
                               (* (ref matrix 1 3) (det (remove-column (remove-first-row matrix) 3)))))
-                  (t t))
-            (error "Matrix dimensions do not match."))))
+                  (t "This function for now only finds determinant for 1x1, 2x2 and 3x3 matrices."))
+            (error "Matrix must be a square matrix."))))
 
 (defun r*c (matrix-1 matrix-2 row col)
     (apply #'+
@@ -146,7 +146,7 @@
                 (loop for row from 1 to h1 collect
                     (loop for col from 1 to w2 collect
                         (r*c matrix-1 matrix-2 row col))))
-             "cannot multiply: dimensions do not match")))
+             "Cannot multiply: dimensions do not match")))
              
 (defun transpose (matrix)
 	"Find the transpose of the matrix."
@@ -156,3 +156,15 @@
 	"Find the inverse of the matrix."
 	(format t "Not implemented yet."))
 	
+(defun eigenvalues (matrix)
+	"Find eigenvalues of a matrix."
+	(let ((w (cols matrix)))
+        (if (square-matrix-p matrix)
+            (cond ((= w 1) (ref matrix 1 1))
+                  ((= w 2) (let ((a (ref matrix 1 1))
+								 (d (ref matrix 2 2)))
+								(let ((root (sqrt (- (expt (+ a d) 2) (* 4 (det matrix))))))
+									 (values (/ (+ a d root) 2)
+									         (/ (- (+ a d) root) 2)))))
+                  (t "This function for now only finds eigenvalues for 1x1 and 2x2 matrices."))
+            (error "Matrix must be a square matrix."))))

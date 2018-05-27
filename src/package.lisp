@@ -36,6 +36,6 @@
            :extract-row-as-list
            :extract-row-as-vector
            :extract-column-as-list
-           :is-square
+           :square-matrix-p
 		   :det
 		   :multiply-matrices))
