@@ -1,8 +1,6 @@
-# mxcl 0.0.17
+# MXCL 0.0.17  ![build status](https://travis-ci.com/akai7000/mxcl.svg?branch=master)
 
-![build status](https://travis-ci.com/akai7000/mxcl.svg?branch=master)
-
-Matrix manipulation library for Common Lisp
+## Matrix manipulation library for Common Lisp
 
 _Works on ABCL, Allegro CL, Clozure CL, SBCL_
 
