@@ -4,6 +4,8 @@
 
 Matrix manipulation library for Common Lisp
 
+_Works on ABCL, Allegro CL, Clozure CL, SBCL_
+
 ### How to install
 _(this is not working yet; I'm yet to submit it to quicklisp)_
 
