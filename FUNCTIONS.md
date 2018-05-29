@@ -124,3 +124,32 @@ MX> (cols
      (create-matrix :initial-contents '((1 2 3 4 5) (6 7 8 9 10))))
 5
 ```
+
+
+-------------------------------------------------
+### `det`
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+INTEGER
+
+#### Description
+Calculate the determinant of a square matrix.
+
+#### Examples
+```lisp
+MX> (det 
+     (create-matrix :initial-contents '((1 3) (-2 5))))
+11
+
+MX> (det (unit-matrix 3 3))
+0
+
+MX> (det 
+     (create-matrix :initial-contents '((7 -2 3) (1 6 0) (-4 9 2))))
+187
+```

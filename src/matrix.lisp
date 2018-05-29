@@ -121,7 +121,7 @@
             (mapcar #'(lambda (list) (remove-elt-from-list list (1- col-num))) data-list))))
             
 (defun det (matrix)
-    "Calculate determinant of a square matrix."
+    "Calculate the determinant of a square matrix."
     (let ((w (cols matrix)))
         (if (square-matrix-p matrix)
             (cond ((= w 1) (ref matrix 1 1))
