@@ -127,7 +127,7 @@ MX> (det m1)
 
 ### More on create-matrix
 
-Besides the LIST the `create-matrix` function also takes an ARRAY in _initial-contents_ argument:
+Besides the LIST the `create-matrix` function also takes a SIMPLE-ARRAY in _initial-contents_ argument:
 ```lisp
 MX> (create-matrix :initial-contents #2A ((1 2 3) (4 5 6)))
 #<CLMX::MATRIX SIZE: (2 3)>
