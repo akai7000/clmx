@@ -71,8 +71,8 @@ MX> (add-scalar
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
-`MATRIX`  | matrix | Matrix to apply the function to
-`FUNCTION`| function | Function that is applied to each cell
+MATRIX    | matrix | Matrix to apply the function to
+FUNCTION  | function | Function that is applied to each cell
 
 #### Returns
 `MATRIX`
@@ -82,6 +82,11 @@ Apply a function to each cell of a matrix.
 
 #### Examples
 ```lisp
+MX> (apply-to-each-cell (create-matrix :initial-contents '((4 9) (16 25))) #'sqrt)
+#<MATRIX SIZE: (2 2)>
+| 2.0  3.0 |
+| 4.0  5.0 |
+
 MX> (apply-to-each-cell
 		(create-matrix :initial-contents '((1 2 3) (4 5 6) (7 8 9)))
 		(lambda (x) (expt x 2)))
@@ -89,11 +94,6 @@ MX> (apply-to-each-cell
 |  1   4   9 |
 | 16  25  36 |
 | 49  64  81 |
-
-MX> (apply-to-each-cell (create-matrix :initial-contents '((4 9) (16 25))) #'sqrt)
-#<MATRIX SIZE: (2 2)>
-| 2.0  3.0 |
-| 4.0  5.0 |
 ```
 
 
