@@ -23,7 +23,7 @@ CL-USER> (in-package :mx)
 MX>
 ```
 
-To create a matrix you can pass a list as initial-contents argument to create-matrix function:
+To create a matrix you can pass a LIST as _initial-contents_ argument to `create-matrix` function:
 ```lisp
 MX> (create-matrix :initial-contents '((1 2 3) (4 5 6) (7 8 9)))
 #<CLMX::MATRIX SIZE: (3 3)>
@@ -53,7 +53,7 @@ MX> m2
 |  1   1  0 |
 ```
 
-To reference a specific element of the matrix use _ref_ function. Note that the count starts at 1, not at 0.
+To reference a specific element of the matrix use `ref` function. Note that the count starts at 1, not at 0.
 ```lisp
 MX> (ref m1 1 2)
 -2
@@ -127,7 +127,7 @@ MX> (det m1)
 
 ### More on create-matrix
 
-Besides the _list_ the `create-matrix` function also takes an _array_ in `initial-contents` argument:
+Besides the LIST the `create-matrix` function also takes an ARRAY in _initial-contents_ argument:
 ```lisp
 MX> (create-matrix :initial-contents #2A ((1 2 3) (4 5 6)))
 #<CLMX::MATRIX SIZE: (2 3)>
@@ -135,7 +135,7 @@ MX> (create-matrix :initial-contents #2A ((1 2 3) (4 5 6)))
 | 4  5  6 |
 ```
 
-Another way to create matrices is by specifying a dimensions and initial-element arguments to `create-matrix` function:
+Another way to create matrices is by specifying a _dimensions_ and _initial-element_ arguments to `create-matrix` function:
 ```lisp
 MX> (create-matrix :dimensions '(3 5) :initial-element 7)
 #<CLMX::MATRIX SIZE: (3 5)>

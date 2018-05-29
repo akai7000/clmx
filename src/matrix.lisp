@@ -90,7 +90,6 @@
 
 (defun apply-to-each-cell (matrix function)
 	(let ((data (slot-value matrix 'data-array)))
-	; (apply-to-each-cell m1 (lambda (x) (expt x 2)))
         (create-matrix :initial-contents (clmx-array:apply-to-cells function data))))
 		 
 (defun extract-row-as-list (matrix row)

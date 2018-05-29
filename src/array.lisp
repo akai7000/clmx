@@ -8,10 +8,7 @@
         :initial-element default-value))
         
 (defun list-to-array (lst)
-    "Convert a nested list to 2-dimensional array.
- Examples:
-    (list-to-array '((1 2) (3 4)))  ==>  #2A((1 2) (3 4))
-    (list-to-array '((1 2 3) (4 5 6)))  ==>  #2A((1 2 3) (4 5 6))"
+    "Convert a nested list to 2-dimensional array."
     (if (atom (car lst))
         (make-array (length lst) :initial-contents lst)
         (make-array (list (length lst) (length (car lst))) :initial-contents lst)))
