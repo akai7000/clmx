@@ -191,6 +191,7 @@ MX> (identity-matrix 4 6)
    - [Function Reference](https://github.com/akai7000/clmx/blob/master/FUNCTIONS.md)
    - CLMX website
    - Solve problems with CLMX
+   - [Travis CI page for CLMX](https://travis-ci.com/akai7000/clmx)
 
    
 ### Support or Contact
