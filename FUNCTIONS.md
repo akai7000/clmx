@@ -5,11 +5,11 @@
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
-`MATRIX` | matrix-1 | First matrix
-`MATRIX` | matrix-2 | Second matrix
+MATRIX    | matrix-1 | First matrix
+MATRIX    | matrix-2 | Second matrix
 
 #### Returns
-`MATRIX`
+MATRIX
 
 #### Description
 Adds two matrices matrix-1 and matrix-2 together.
@@ -45,11 +45,11 @@ MX> (add-matrices
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
-`MATRIX` | matrix | Matrix to add a scalar to
-`NUMBER` | scalar | Scalar to be added to matrix
+MATRIX    | matrix | Matrix to add a scalar to
+NUMBER    | scalar | Scalar to be added to matrix
 
 #### Returns
-`MATRIX`
+MATRIX
 
 #### Description
 Add scalar to a matrix.
@@ -75,7 +75,7 @@ MATRIX    | matrix | Matrix to apply the function to
 FUNCTION  | function | Function that is applied to each cell
 
 #### Returns
-`MATRIX`
+MATRIX
 
 #### Description
 Apply a function to each cell of a matrix.
@@ -103,10 +103,10 @@ MX> (apply-to-each-cell
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
-`MATRIX` | matrix | Matrix
+MATRIX    | matrix | Matrix
 
 #### Returns
-`INTEGER`
+INTEGER
 
 #### Description
 Get the number of columns of a matrix.

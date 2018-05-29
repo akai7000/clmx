@@ -60,11 +60,11 @@
        (apply-to-cells (lambda (x) (* x number)) array))
 
 (defun format-array (array)
-    (let ((max-digits-vector (reduce-by-column #'max (apply-to-cells #'clmx-util:digits array))))
+    (let ((max-numlength-vector (reduce-by-column #'max (apply-to-cells #'clmx-util:numlength array))))
          (loop for h from 0 below (height array) do
              (format t "|")
              (loop for w from 0 below (width array) do
-                 (let ((padding (write-to-string (1+ (aref max-digits-vector w))))
+                 (let ((padding (write-to-string (1+ (aref max-numlength-vector w))))
 				       (val (aref array h w)))
                      (format t
                           (cond ((floatp val) (clmx-util:replace-all "~$f " "$" padding))

@@ -2,7 +2,7 @@
 
 (defpackage :clmx-util
   (:use #:cl)
-  (:export :digits
+  (:export :numlength
            :replace-all))
 
 (defpackage :clmx-array

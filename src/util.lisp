@@ -3,7 +3,7 @@
 
 (in-package #:clmx-util)
 
-(defun digits (n)
+(defun numlength (n)
     (length (write-to-string n)))
     
 (defun replace-all (string part replacement &key (test #'char=))
