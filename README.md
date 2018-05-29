@@ -23,9 +23,9 @@ CL-USER> (in-package :mx)
 MX>
 ```
 
-To create a matrix you can pass a LIST as _initial-contents_ argument to `create-matrix` function:
+To create a matrix you can pass a LIST as _contents_ argument to `create-matrix` function:
 ```lisp
-MX> (create-matrix :initial-contents '((1 2 3) (4 5 6) (7 8 9)))
+MX> (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9)))
 #<CLMX::MATRIX SIZE: (3 3)>
 | 1  2  3 |
 | 4  5  6 |
@@ -34,10 +34,10 @@ MX> (create-matrix :initial-contents '((1 2 3) (4 5 6) (7 8 9)))
 
 Let's create two square matrices and store them in variables:
 ```lisp
-MX> (defparameter m1 (create-matrix :initial-contents '((3 -2 0) (7 3 1) (0 2 4))))
+MX> (defparameter m1 (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4))))
 M1
 
-MX> (defparameter m2 (create-matrix :initial-contents '((1 5 4) (-3 -4 2) (1 1 0))))
+MX> (defparameter m2 (create-matrix :contents '((1 5 4) (-3 -4 2) (1 1 0))))
 M2
 
 MX> m1
@@ -127,9 +127,9 @@ MX> (det m1)
 
 ### More on create-matrix
 
-Besides the LIST the `create-matrix` function also takes a SIMPLE-ARRAY in _initial-contents_ argument:
+Besides the LIST the `create-matrix` function also takes a SIMPLE-ARRAY in _contents_ argument:
 ```lisp
-MX> (create-matrix :initial-contents #2A ((1 2 3) (4 5 6)))
+MX> (create-matrix :contents #2A ((1 2 3) (4 5 6)))
 #<CLMX::MATRIX SIZE: (2 3)>
 | 1  2  3 |
 | 4  5  6 |

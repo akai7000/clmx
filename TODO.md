@@ -21,3 +21,4 @@
 - [ ] Submit CLMX to quicklisp
 - [x] Write function to apply to each cell
 - [ ] Fix the formatting of the matrix if it contains fractions
+- [x] Rename initial-contents argument in create-matrix to contents

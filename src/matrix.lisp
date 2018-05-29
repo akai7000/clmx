@@ -29,18 +29,18 @@
       (format stream "SIZE: ~a" size)
       (format-array data-array))))
             
-(defun create-matrix (&key (initial-contents nil ic-supplied-p)
+(defun create-matrix (&key (contents nil c-supplied-p)
                            (dimensions nil d-supplied-p)
                            (initial-element 0))
      "Create a matrix."
      (let ((data-array
-            (cond ((and ic-supplied-p (listp initial-contents)) (list-to-array initial-contents))
-                  ((and ic-supplied-p (arrayp initial-contents)) initial-contents)
+            (cond ((and c-supplied-p (listp contents)) (list-to-array contents))
+                  ((and c-supplied-p (arrayp contents)) contents)
                   (d-supplied-p
                     (if (= (length dimensions) 2)
                         (make-array dimensions :initial-element initial-element)
                         (error "DIMENSIONS must be a list of 2 values")))
-                  (t (error "INITIAL-CONTENTS or DIMENSIONS must be specified")))))
+                  (t (error "CONTENTS or DIMENSIONS must be specified")))))
            (make-instance 'matrix :data-array data-array :size (list (height data-array) (width data-array)))))
       
 (defun rows (matrix)
@@ -76,21 +76,21 @@
          
 (defun add-matrices (matrix-1 matrix-2)
     "Add two matrices together."
-    (create-matrix :initial-contents (clmx-array:add-arrays (slot-value matrix-1 'data-array) (slot-value matrix-2 'data-array))))
+    (create-matrix :contents (clmx-array:add-arrays (slot-value matrix-1 'data-array) (slot-value matrix-2 'data-array))))
     
 (defun add-scalar (matrix scalar)
     "Add scalar to a matrix."
     (let ((data (slot-value matrix 'data-array)))
-        (create-matrix :initial-contents (clmx-array:scalar+ data scalar))))
+        (create-matrix :contents (clmx-array:scalar+ data scalar))))
     
 (defun multiply-scalar (matrix scalar)
     "Multiply matrix by a scalar."
     (let ((data (slot-value matrix 'data-array)))
-        (create-matrix :initial-contents (clmx-array:scalar* data scalar))))
+        (create-matrix :contents (clmx-array:scalar* data scalar))))
 
 (defun apply-to-each-cell (matrix function)
 	(let ((data (slot-value matrix 'data-array)))
-        (create-matrix :initial-contents (clmx-array:apply-to-cells function data))))
+        (create-matrix :contents (clmx-array:apply-to-cells function data))))
 		 
 (defun extract-row-as-list (matrix row)
     (loop for col from 1 to (cols matrix) collect
@@ -113,11 +113,11 @@
 
 (defun remove-first-row (matrix)
     (let ((data (slot-value matrix 'data-array)))
-         (create-matrix :initial-contents (cdr (clmx-array:array-to-list data)))))
+         (create-matrix :contents (cdr (clmx-array:array-to-list data)))))
 
 (defun remove-column (matrix col-num)
     (let ((data-list (clmx-array:array-to-list (slot-value matrix 'data-array))))
-         (create-matrix :initial-contents
+         (create-matrix :contents
             (mapcar #'(lambda (list) (remove-elt-from-list list (1- col-num))) data-list))))
             
 (defun det (matrix)
@@ -146,7 +146,7 @@
           (w2 (cols matrix-2))
           (h2 (rows matrix-2)))
          (if (= w1 h2)
-             (create-matrix :initial-contents
+             (create-matrix :contents
                 (loop for row from 1 to h1 collect
                     (loop for col from 1 to w2 collect
                         (r*c matrix-1 matrix-2 row col))))
