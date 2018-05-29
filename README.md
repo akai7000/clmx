@@ -1,6 +1,6 @@
 ![build status](https://travis-ci.com/akai7000/clmx.svg?branch=master)
 
-# CLMX 0.0.25
+# CLMX 0.0.32
 
 *Matrix manipulation library for Common Lisp*
 
@@ -191,7 +191,7 @@ MX> (identity-matrix 4 6)
    - [Function Reference](https://github.com/akai7000/clmx/blob/master/FUNCTIONS.md)
    - CLMX website
    - Solve problems with CLMX
-   - [Travis CI page for CLMX](https://travis-ci.com/akai7000/clmx)
+   - [Test results](https://travis-ci.com/akai7000/clmx)
 
    
 ### Support or Contact
