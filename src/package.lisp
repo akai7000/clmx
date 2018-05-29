@@ -12,7 +12,7 @@
 		   :array-to-list
            :height
            :width
-           :apply-to-each-cell
+           :apply-to-cells
            :reduce-by-column
            :reduce-by-row
            :scalar+
@@ -38,4 +38,5 @@
            :extract-column-as-list
            :square-matrix-p
 		   :det
-		   :multiply-matrices))
+		   :multiply-matrices
+		   :apply-to-each-cell))

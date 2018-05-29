@@ -30,7 +30,7 @@
              1
             (car cdr-of-dims))))
             
-(defun apply-to-each-cell (function array)
+(defun apply-to-cells (function array)
        (let ((new-array (create-default-array (height array) (width array))))
          (loop for h from 0 below (height array) do
           (loop for w from 0 below (width array) do
@@ -54,23 +54,26 @@
                     (aref array h w))))))
                     
 (defun scalar+ (array number)
-       (apply-to-each-cell (lambda (x) (+ x number)) array))
+       (apply-to-cells (lambda (x) (+ x number)) array))
        
 (defun scalar* (array number)
-       (apply-to-each-cell (lambda (x) (* x number)) array))
-    
+       (apply-to-cells (lambda (x) (* x number)) array))
+
 (defun format-array (array)
-    (let ((max-digits-vector (reduce-by-column #'max (apply-to-each-cell #'digits array))))
+    (let ((max-digits-vector (reduce-by-column #'max (apply-to-cells #'clmx-util:digits array))))
          (loop for h from 0 below (height array) do
              (format t "|")
              (loop for w from 0 below (width array) do
-                 (let ((padding (aref max-digits-vector w)))
-                      (format t
-                          (replace-all "~$d "
-                          "$"
-                          (write-to-string (+ 1 padding))) (aref array h w))))
+                 (let ((padding (write-to-string (1+ (aref max-digits-vector w))))
+				       (val (aref array h w)))
+                     (format t
+                          (cond ((floatp val) (clmx-util:replace-all "~$f " "$" padding))
+								((integerp val) (clmx-util:replace-all "~$d " "$" padding))
+								((complexp val) (clmx-util:replace-all "~$f " "$" padding))
+						        (t (clmx-util:replace-all "~$d " "$" padding)))
+						  val)))
              (format t "|~%"))))
-             
+				  
 (defun add-arrays (array-1 array-2)
        (let ((new-array (create-default-array (height array-1) (width array-1))))
          (loop for h from 0 below (height array-1) do
@@ -80,3 +83,4 @@
          
              
     
+	

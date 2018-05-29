@@ -53,7 +53,7 @@ MX> m2
 |  1   1  0 |
 ```
 
-To reference a specific element of the matrix use _ref_ function. Note that the count starts at 1, not at 0.  Think like a mathematician, not a computer scientist.
+To reference a specific element of the matrix use _ref_ function. Note that the count starts at 1, not at 0.
 ```lisp
 MX> (ref m1 1 2)
 -2
@@ -182,18 +182,6 @@ MX> (identity-matrix 4 6)
 | 0  1  0  0  0  0 |
 | 0  0  1  0  0  0 |
 | 0  0  0  1  0  0 |
-```
-
-Or like this:
-```lisp
-MX> (identity-matrix 6 4)
-#<CLMX::MATRIX SIZE: (6 4)>
-| 1  0  0  0 |
-| 0  1  0  0 |
-| 0  0  1  0 |
-| 0  0  0  1 |
-| 0  0  0  0 |
-| 0  0  0  0 |
 ```
 
 

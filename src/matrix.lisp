@@ -76,18 +76,23 @@
          
 (defun add-matrices (matrix-1 matrix-2)
     "Add two matrices together."
-    (create-matrix :initial-contents (add-arrays (slot-value matrix-1 'data-array) (slot-value matrix-2 'data-array))))
+    (create-matrix :initial-contents (clmx-array:add-arrays (slot-value matrix-1 'data-array) (slot-value matrix-2 'data-array))))
     
 (defun add-scalar (matrix scalar)
     "Add scalar to a matrix."
     (let ((data (slot-value matrix 'data-array)))
-        (create-matrix :initial-contents (scalar+ data scalar))))
+        (create-matrix :initial-contents (clmx-array:scalar+ data scalar))))
     
 (defun multiply-scalar (matrix scalar)
     "Multiply matrix by a scalar."
     (let ((data (slot-value matrix 'data-array)))
-        (create-matrix :initial-contents (scalar* data scalar))))
+        (create-matrix :initial-contents (clmx-array:scalar* data scalar))))
 
+(defun apply-to-each-cell (matrix function)
+	(let ((data (slot-value matrix 'data-array)))
+	; (apply-to-each-cell m1 (lambda (x) (expt x 2)))
+        (create-matrix :initial-contents (clmx-array:apply-to-cells function data))))
+		 
 (defun extract-row-as-list (matrix row)
     (loop for col from 1 to (cols matrix) collect
         (ref matrix row col)))

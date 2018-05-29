@@ -3,7 +3,8 @@
 - [ ] Finish `det` function to work for matrices bigger that 3x3
 - [ ] Write `transpose` function
 - [ ] Write `inverse` function
-- [ ] Fix the formatting of the matrix if it contains decimals, fractions, and for negative numbers
+- [x] Fix the formatting of the matrix if it contains floats
+- [x] Fix the formatting of the matrix if it contains complex numbers
 - [x] Move source code to /src
 - [ ] Implement `identity-matrix-p`
 - [x] Implement `square-matrix-p`
@@ -16,4 +17,7 @@
 - [ ] Write function to find eigenvector
 - [ ] Make eigenvalues function work with 3x3 matrices
 - [ ] Make eigenvalues function work with large matrices
-- [ ] Rename the project to CLMX 
+- [x] Rename the project to CLMX 
+- [ ] Submit CLMX to quicklisp
+- [x] Write function to apply to each cell
+- [ ] Fix the formatting of the matrix if it contains fractions
