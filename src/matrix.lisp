@@ -120,17 +120,20 @@
          (create-matrix :contents
             (mapcar #'(lambda (list) (remove-elt-from-list list (1- col-num))) data-list))))
             
+(defmacro cell-times-det (col)
+  `(* (ref matrix 1 ,col ) (det (remove-column (remove-first-row matrix) ,col))))
+  
 (defun det (matrix)
     "Calculate the determinant of a square matrix."
     (let ((w (cols matrix)))
         (if (square-matrix-p matrix)
             (cond ((= w 1) (ref matrix 1 1))
-                  ((= w 2) (- (* (ref matrix 1 1) (ref matrix 2 2))
-                              (* (ref matrix 1 2) (ref matrix 2 1))))
-                  ((= w 3) (+ (- (* (ref matrix 1 1) (det (remove-column (remove-first-row matrix) 1)))
-                                 (* (ref matrix 1 2) (det (remove-column (remove-first-row matrix) 2))))
-                              (* (ref matrix 1 3) (det (remove-column (remove-first-row matrix) 3)))))
-                  (t "This function for now only finds determinant for 1x1, 2x2 and 3x3 matrices."))
+                  (t (- (apply #'+
+							(loop for col from 1 to w
+								if (oddp col) collect (cell-times-det col)))
+						(apply #'+
+							(loop for col from 2 to w 
+								if (evenp col) collect (cell-times-det col))))))
             (error "Matrix must be a square matrix."))))
 
 (defun r*c (matrix-1 matrix-2 row col)

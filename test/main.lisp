@@ -14,8 +14,8 @@
   "Testing create-matrix."
   (is (= (mx:ref (mx:create-matrix :dimensions '(4 3) :initial-element 5) 1 1) 5))
   (is (= (mx:ref (mx:create-matrix :dimensions '(4 3) :initial-element 5) 4 3) 5))
-  (is (= (mx:ref (mx:create-matrix :initial-contents '((1 2 3) (4 5 6))) 1 1) 1))
-  (is (= (mx:ref (mx:create-matrix :initial-contents '((1 2 3) (4 5 6))) 2 3) 6)))
+  (is (= (mx:ref (mx:create-matrix :contents '((1 2 3) (4 5 6))) 1 1) 1))
+  (is (= (mx:ref (mx:create-matrix :contents '((1 2 3) (4 5 6))) 2 3) 6)))
   
 (test test-zero-matrix
   "Testing zero-matrix."
