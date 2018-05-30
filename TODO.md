@@ -1,6 +1,6 @@
 # Things I have to do
 
-- [ ] Finish `det` function to work for matrices bigger that 3x3
+- [x] Finish `det` function to work for matrices bigger that 3x3
 - [ ] Write `transpose` function
 - [ ] Write `inverse` function
 - [x] Fix the formatting of the matrix if it contains floats

@@ -9,7 +9,7 @@
   (:use :common-lisp :clmx-util)
   (:export :create-default-array
            :list-to-array
-		   :array-to-list
+           :array-to-list
            :height
            :width
            :apply-to-cells
@@ -37,6 +37,6 @@
            :extract-row-as-vector
            :extract-column-as-list
            :square-matrix-p
-		   :det
-		   :multiply-matrices
-		   :apply-to-each-cell))
+           :det
+           :multiply-matrices
+           :apply-to-each-cell))

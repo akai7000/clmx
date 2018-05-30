@@ -89,9 +89,9 @@
         (create-matrix :contents (clmx-array:scalar* data scalar))))
 
 (defun apply-to-each-cell (matrix function)
-	(let ((data (slot-value matrix 'data-array)))
+    (let ((data (slot-value matrix 'data-array)))
         (create-matrix :contents (clmx-array:apply-to-cells function data))))
-		 
+         
 (defun extract-row-as-list (matrix row)
     (loop for col from 1 to (cols matrix) collect
         (ref matrix row col)))
@@ -107,7 +107,7 @@
     "Determine if the matrix is a square matrix."
     (= (cols matrix) (rows matrix)))
 
-;; The following 4 functions are used for calculating determinants
+;; The following 5 functions are used for calculating determinants
 (defun remove-elt-from-list (list elt)
     (append (subseq list 0 elt) (nthcdr (1+ elt) list)))
 
@@ -129,11 +129,11 @@
         (if (square-matrix-p matrix)
             (cond ((= w 1) (ref matrix 1 1))
                   (t (- (apply #'+
-							(loop for col from 1 to w
-								if (oddp col) collect (cell-times-det col)))
-						(apply #'+
-							(loop for col from 2 to w 
-								if (evenp col) collect (cell-times-det col))))))
+                            (loop for col from 1 to w
+                                if (oddp col) collect (cell-times-det col)))
+                        (apply #'+
+                            (loop for col from 2 to w 
+                                if (evenp col) collect (cell-times-det col))))))
             (error "Matrix must be a square matrix."))))
 
 (defun r*c (matrix-1 matrix-2 row col)
@@ -156,22 +156,22 @@
              "Cannot multiply: dimensions do not match")))
              
 (defun transpose (matrix)
-	"Find the transpose of the matrix."
-	(format t "Not implemented yet."))
+    "Find the transpose of the matrix."
+    (format t "Not implemented yet."))
     
 (defun inverse (matrix)
-	"Find the inverse of the matrix."
-	(format t "Not implemented yet."))
-	
+    "Find the inverse of the matrix."
+    (format t "Not implemented yet."))
+    
 (defun eigenvalues (matrix)
-	"Find eigenvalues of a matrix."
-	(let ((w (cols matrix)))
+    "Find eigenvalues of a matrix."
+    (let ((w (cols matrix)))
         (if (square-matrix-p matrix)
             (cond ((= w 1) (ref matrix 1 1))
                   ((= w 2) (let ((a (ref matrix 1 1))
-								 (d (ref matrix 2 2)))
-								(let ((root (sqrt (- (expt (+ a d) 2) (* 4 (det matrix))))))
-									 (values (/ (+ a d root) 2)
-									         (/ (- (+ a d) root) 2)))))
+                                 (d (ref matrix 2 2)))
+                                (let ((root (sqrt (- (expt (+ a d) 2) (* 4 (det matrix))))))
+                                     (values (/ (+ a d root) 2)
+                                             (/ (- (+ a d) root) 2)))))
                   (t "This function for now only finds eigenvalues for 1x1 and 2x2 matrices."))
             (error "Matrix must be a square matrix."))))

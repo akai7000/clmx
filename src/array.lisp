@@ -62,15 +62,15 @@
              (format t "|")
              (loop for w from 0 below (width array) do
                  (let ((padding (write-to-string (1+ (aref max-numlength-vector w))))
-				       (val (aref array h w)))
+                       (val (aref array h w)))
                      (format t
                           (cond ((floatp val) (clmx-util:replace-all "~$f " "$" padding))
-								((integerp val) (clmx-util:replace-all "~$d " "$" padding))
-								((complexp val) (clmx-util:replace-all "~$f " "$" padding))
-						        (t (clmx-util:replace-all "~$d " "$" padding)))
-						  val)))
+                                ((integerp val) (clmx-util:replace-all "~$d " "$" padding))
+                                ((complexp val) (clmx-util:replace-all "~$f " "$" padding))
+                                (t (clmx-util:replace-all "~$d " "$" padding)))
+                          val)))
              (format t "|~%"))))
-				  
+                  
 (defun add-arrays (array-1 array-2)
        (let ((new-array (create-default-array (height array-1) (width array-1))))
          (loop for h from 0 below (height array-1) do
@@ -80,4 +80,4 @@
          
              
     
-	
+    
