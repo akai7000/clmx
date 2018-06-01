@@ -1,6 +1,6 @@
 ![build status](https://travis-ci.com/akai7000/clmx.svg?branch=master)
 
-# CLMX 0.0.32
+# CLMX 0.0.36
 
 *Matrix manipulation library for Common Lisp*
 

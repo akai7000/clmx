@@ -23,24 +23,24 @@
 (defpackage :clmx-matrix
   (:nicknames #:clmx #:mx)
   (:use :common-lisp :clmx-array)
-  (:export :create-matrix
-           :rows
-           :cols
-           :zero-matrix
-           :unit-matrix
-           :ref
-           :identity-matrix
-           :add-matrices
+  (:export :add-matrices
            :add-scalar
-           :multiply-scalar
+           :apply-to-each-cell
+           :create-matrix
+           :cols
+           :det
+           :extract-column-as-list
            :extract-row-as-list
            :extract-row-as-vector
-           :extract-column-as-list
-           :square-matrix-p
-           :det
-           :multiply-matrices
-           :apply-to-each-cell
-           :transpose
            :flip-horizontally
            :flip-vertically
-           :identity-matrix-p))
+           :identity-matrix
+           :identity-matrix-p
+           :multiply-matrices
+           :multiply-scalar
+           :ref
+           :rows
+           :square-matrix-p
+           :transpose
+           :unit-matrix
+           :zero-matrix))

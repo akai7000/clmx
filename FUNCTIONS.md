@@ -91,6 +91,54 @@ MX> (apply-to-each-cell
 
 
 -------------------------------------------------
+### `create-matrix`
+create-matrix (&key (contents nil c-supplied-p)
+                           (dimensions nil d-supplied-p)
+                           (initial-element 0))
+     "Create a matrix."
+     
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+LIST or SIMPLE-ARRAY | contents | Provide either list or array to populate the matrix
+LIST | dimensions | a list of integers to specify dimensions of the matrix
+NUMBER | initial-element | Any real or complex number to be written in every cell of the matrix
+
+#### Returns
+MATRIX
+
+#### Description
+Create a matrix. This function creates an instance of MATRIX class.
+
+
+#### Examples
+```lisp
+MX> (create-matrix :contents '((2 -2 5) (-1 0 1)))
+#<MATRIX SIZE: (3 3)>
+|  2  -2  5 |
+| -1   0  1 |
+
+MX> (create-matrix :contents #2A ((1 2 3) (4 5 6) (7 8 9))
+#<CLMX::MATRIX SIZE: (2 3)>
+| 1  2  3 |
+| 4  5  6 |
+| 7  8  9 |
+
+MX> (create-matrix :dimensions '(3 4) :initial-element 5)
+#<MATRIX SIZE: (3 4)>
+| 5  5  5  5 |
+| 5  5  5  5 |
+| 5  5  5  5 |
+
+MX> (create-matrix :dimensions '(3 3))
+#<MATRIX SIZE: (3 3)>
+| 0  0  0 |
+| 0  0  0 |
+| 0  0  0 |
+```
+
+
+-------------------------------------------------
 ### `cols`
 
 #### Arguments
