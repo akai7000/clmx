@@ -107,6 +107,41 @@
     "Determine if the matrix is a square matrix."
     (= (cols matrix) (rows matrix)))
 
+(defun identity-matrix-p (matrix)
+    "Determine if the matrix is an identity matrix."
+    (if (square-matrix-p matrix)
+        (= 0 (apply #'+
+            (loop for row from 1 to (rows matrix) append
+                (loop for col from 1 to (cols matrix) collect
+                    (let ((val (ref matrix row col)))
+                         (cond ((and (= row col) (= val 1)) 0)
+                               ((and (/= row col) (= val 0) 0))
+                               (t 1)))))))
+        (error "Matrix must be a square matrix.")))
+        
+(defun transpose (matrix)
+    "Find the transpose of the matrix."
+    (if (square-matrix-p matrix)
+        (create-matrix :contents
+            (loop for row from 1 upto (rows matrix) collect
+                (loop for col from 1 upto (cols matrix) collect
+                    (ref matrix col row))))
+        (error "Matrix must be a square matrix.")))
+      
+(defun flip-horizontally (matrix)
+    "Flip the matrix horizontally (reverse column order)."
+    (create-matrix :contents
+        (loop for row from 1 upto (rows matrix) collect
+            (loop for col from (cols matrix) downto 1 collect
+                (ref matrix row col)))))
+
+(defun flip-vertically (matrix)
+    "Flip the matrix vertically (reverse row order)."
+    (create-matrix :contents
+        (loop for row from (rows matrix) downto 1 collect
+            (loop for col from 1 upto (cols matrix) collect
+                (ref matrix row col)))))                 
+                     
 ;; The following 5 functions are used for calculating determinants
 (defun remove-elt-from-list (list elt)
     (append (subseq list 0 elt) (nthcdr (1+ elt) list)))
@@ -154,10 +189,6 @@
                     (loop for col from 1 to w2 collect
                         (r*c matrix-1 matrix-2 row col))))
              "Cannot multiply: dimensions do not match")))
-             
-(defun transpose (matrix)
-    "Find the transpose of the matrix."
-    (format t "Not implemented yet."))
     
 (defun inverse (matrix)
     "Find the inverse of the matrix."

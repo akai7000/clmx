@@ -1,12 +1,12 @@
 # Things I have to do
 
 - [x] Finish `det` function to work for matrices bigger that 3x3
-- [ ] Write `transpose` function
+- [x] Write `transpose` function
 - [ ] Write `inverse` function
 - [x] Fix the formatting of the matrix if it contains floats
 - [x] Fix the formatting of the matrix if it contains complex numbers
 - [x] Move source code to /src
-- [ ] Implement `identity-matrix-p`
+- [x] Implement `identity-matrix-p`
 - [x] Implement `square-matrix-p`
 - [ ] Implement `triangular-matrix-p`
 - [ ] Implement `singular-matrix-p`
@@ -22,3 +22,6 @@
 - [x] Write function to apply to each cell
 - [ ] Fix the formatting of the matrix if it contains fractions
 - [x] Rename initial-contents argument in create-matrix to contents
+- [x] `flip-horizontally`, `flip-vertically`
+- [ ] `rotate-right`, `rotate-left`
+- [ ] Ability to concatenate matrices

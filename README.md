@@ -110,7 +110,11 @@ MX> (multiply-scalar m1 10)
 To find a transpose of a matrix you can use `transpose` function:
 ```lisp
 MX> (transpose m1)
-[Not implemented yet]
+#<MATRIX SIZE: (3 3)>
+|  3  7  0 |
+| -2  3  2 |
+|  0  1  4 |
+MX> 
 ```
 
 Let's find the inverse of a matrix:

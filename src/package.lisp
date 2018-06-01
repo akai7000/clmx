@@ -39,4 +39,8 @@
            :square-matrix-p
            :det
            :multiply-matrices
-           :apply-to-each-cell))
+           :apply-to-each-cell
+           :transpose
+           :flip-horizontally
+           :flip-vertically
+           :identity-matrix-p))
