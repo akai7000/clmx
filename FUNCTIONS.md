@@ -194,3 +194,36 @@ MX> (det
      (create-matrix :contents '((7 -2 3) (1 6 0) (-4 9 2))))
 187
 ```
+
+
+-------------------------------------------------
+### `extract-column-as-list`
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+INTEGER   | col | Column number
+
+#### Returns
+LIST
+
+#### Description
+Returns the column of the matrix as a list.
+
+#### Examples
+```lisp
+MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
+M
+MX> m
+#<MATRIX SIZE: (3 3)>
+|  3   4  7 |
+|  2  -2  5 |
+| -1   0  1 |
+MX> (extract-column-as-list m 1)
+(3 2 -1)
+MX> (extract-column-as-list m 2)
+(4 -2 0)
+MX> (extract-column-as-list m 3)
+(7 5 1)
+```

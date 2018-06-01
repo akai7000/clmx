@@ -100,6 +100,7 @@
     (list-to-array (extract-row-as-list matrix row)))
     
 (defun extract-column-as-list (matrix col)
+    "Returns the column of the matrix as a list."
     (loop for row from 1 to (rows matrix) collect
         (ref matrix row col)))
     
