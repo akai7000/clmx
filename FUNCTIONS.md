@@ -92,10 +92,6 @@ MX> (apply-to-each-cell
 
 -------------------------------------------------
 ### `create-matrix`
-create-matrix (&key (contents nil c-supplied-p)
-                           (dimensions nil d-supplied-p)
-                           (initial-element 0))
-     "Create a matrix."
      
 #### Arguments
 Data Type | Argument Name | Description
@@ -226,4 +222,37 @@ MX> (extract-column-as-list m 2)
 (4 -2 0)
 MX> (extract-column-as-list m 3)
 (7 5 1)
+```
+
+
+-------------------------------------------------
+### `extract-row-as-list`
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+INTEGER   | row | Row number
+
+#### Returns
+LIST
+
+#### Description
+Returns the row of the matrix as a list.
+
+#### Examples
+```lisp
+MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
+M
+MX> m
+#<MATRIX SIZE: (3 3)>
+|  3   4  7 |
+|  2  -2  5 |
+| -1   0  1 |
+MX> (extract-row-as-list m 1)
+(3 4 7)
+MX> (extract-row-as-list m 2)
+(2 -2 5)
+MX> (extract-row-as-list m 3)
+(-1 0 1)
 ```
