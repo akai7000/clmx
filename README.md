@@ -1,8 +1,14 @@
-![build status](https://travis-ci.com/akai7000/clmx.svg?branch=master)
+# CLMX - Matrix manipulation library for Common Lisp
 
-# CLMX 0.0.36
+[![build status](https://travis-ci.com/akai7000/clmx.svg?branch=master)] (https://travis-ci.com/akai7000/clmx)
 
-*Matrix manipulation library for Common Lisp*
+CLMX is written entirely in Common Lisp with no external libraries.
+The goal for this project is to write a library for working with 2D matrices that is:
+1) Correct - lots of different test cases will ensure the correctness of functions.
+2) Easy to use - no cryptic function names, clear documentation.
+3) Fast - as the project matures the performance will become higher priority.
+
+Version 0.0.40
 
 _Works on ABCL, Allegro CL, Clozure CL, SBCL_
 
