@@ -8,7 +8,7 @@ The goal for this project is to write a library for working with 2D matrices tha
 2) Easy to use - no cryptic function names, clear documentation.
 3) Fast - as the project matures the performance will become higher priority.
 
-Version 0.0.40
+Version 0.0.46
 
 _Works on ABCL, Allegro CL, Clozure CL, SBCL_
 
@@ -201,8 +201,7 @@ MX> (identity-matrix 4 6)
    - [Function Reference](https://github.com/akai7000/clmx/blob/master/FUNCTIONS.md)
    - CLMX website
    - Solve problems with CLMX
-   - [Test results](https://travis-ci.com/akai7000/clmx)
-
+   
    
 ### Support or Contact
 
