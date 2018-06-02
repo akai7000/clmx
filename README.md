@@ -209,3 +209,5 @@ MX> (identity-matrix 4 6)
 Do you have a suggestion on how to improve **CLMX**? Found a bug you want to report?
 Please visit the [Issues](https://github.com/akai7000/clmx/issues) page.
 
+TEST - REMOVE
+[![Build Status](https://travis-ci.org/fukamachi/clack.svg?branch=master)](https://travis-ci.org/fukamachi/clack)
