@@ -1,6 +1,6 @@
 # CLMX - Matrix manipulation library for Common Lisp
 
-[![build status](https://travis-ci.com/akai7000/clmx.svg?branch=master)] (https://travis-ci.com/akai7000/clmx)
+![build status](https://travis-ci.com/akai7000/clmx.svg?branch=master) - https://travis-ci.com/akai7000/clmx
 
 CLMX is written entirely in Common Lisp with no external libraries.
 The goal for this project is to write a library for working with 2D matrices that is:
