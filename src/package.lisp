@@ -44,6 +44,7 @@
            :create-matrix
            :cols
            :det
+           :eigenvalues
            :extract-column-as-list
            :extract-row-as-list
            :extract-row-as-vector
@@ -51,6 +52,7 @@
            :flip-vertically
            :identity-matrix
            :identity-matrix-p
+           :inverse
            :multiply-matrices
            :multiply-scalar
            :ref

@@ -239,5 +239,5 @@
 (defmacro defmx (var &key (contents nil)
                            (dimensions nil)
                            (initial-element))
-    "Create a matrix and set it to var"
+    "Create a matrix and set it to var.  NOT FINISHED."
     `(defparameter ,var (create-matrix :contents ,contents)))
