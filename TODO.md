@@ -2,7 +2,7 @@
 
 - [x] Finish `det` function to work for matrices bigger that 3x3
 - [x] Write `transpose` function
-- [ ] Write `inverse` function
+- [x] Write `inverse` function
 - [x] Fix the formatting of the matrix if it contains floats
 - [x] Fix the formatting of the matrix if it contains complex numbers
 - [x] Move source code to /src
@@ -25,3 +25,5 @@
 - [x] `flip-horizontally`, `flip-vertically`
 - [ ] `rotate-right`, `rotate-left`
 - [ ] Ability to concatenate matrices
+- [ ] Make inverse function work with 3x3 matrices
+- [ ] Make inverse function work with large matrices

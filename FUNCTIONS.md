@@ -97,7 +97,7 @@ MX> (apply-to-each-cell
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
 LIST or SIMPLE-ARRAY | contents | Provide either list or array to populate the matrix
-LIST | dimensions | a list of integers to specify dimensions of the matrix
+LIST | dimensions | a list of 2 integers to specify dimensions of the matrix
 NUMBER | initial-element | Any real or complex number to be written in every cell of the matrix
 
 #### Returns

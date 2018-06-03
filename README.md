@@ -4,8 +4,8 @@
 
 CLMX is written entirely in Common Lisp with no external libraries.
 The goal for this project is to write a library for working with 2D matrices that is:
-1) Correct - lots of different test cases will ensure the correctness of functions.
-2) Easy to use - no cryptic function names, clear documentation.
+1) Correct - rigorous tests cases are executed at each build to ensure the correctness of all functions.
+2) Easy to use - no cryptic function names, clear documentation, lots of examples.
 3) Fast - as the project matures the performance will become higher priority.
 
 Version 0.0.46
