@@ -207,21 +207,21 @@
     
 (defun inverse (matrix)
     "Find the inverse of the matrix."
-	(let ((w (cols matrix)))
-		(if (square-matrix-p matrix)
-			(cond ((= w 1) (if (= 0 (ref matrix 1 1))
-							   (error "Inverse of this matrix does not exist")
-							   (/ 1 (ref matrix 1 1))))
-				  ((= w 2) (let ((d (det matrix)))
-								(if (= 0 d)
-									(error "Inverse of this matrix does not exist")
-									(multiply-scalar
-									  (create-matrix :contents (list
-																  (list (ref matrix 2 2) (- (ref matrix 1 2)))
-																  (list (- (ref matrix 2 1)) (ref matrix 1 1))))
-									  (/ 1 (det matrix))))))
-				  (t "This function for now only returns the inverse for 1x1 and 2x2 matrices."))
-			(error "Matrix must be a square matrix."))))
+    (let ((w (cols matrix)))
+        (if (square-matrix-p matrix)
+            (cond ((= w 1) (if (= 0 (ref matrix 1 1))
+                               (error "Inverse of this matrix does not exist")
+                               (/ 1 (ref matrix 1 1))))
+                  ((= w 2) (let ((d (det matrix)))
+                                (if (= 0 d)
+                                    (error "Inverse of this matrix does not exist")
+                                    (multiply-scalar
+                                      (create-matrix :contents (list
+                                                                  (list (ref matrix 2 2) (- (ref matrix 1 2)))
+                                                                  (list (- (ref matrix 2 1)) (ref matrix 1 1))))
+                                      (/ 1 (det matrix))))))
+                  (t "This function for now only returns the inverse for 1x1 and 2x2 matrices."))
+            (error "Matrix must be a square matrix."))))
     
 (defun eigenvalues (matrix)
     "Find eigenvalues of a matrix."
@@ -235,9 +235,9 @@
                                              (/ (- (+ a d) root) 2)))))
                   (t "This function for now only finds eigenvalues for 1x1 and 2x2 matrices."))
             (error "Matrix must be a square matrix."))))
-			
+            
 (defmacro defmx (var &key (contents nil)
                            (dimensions nil)
                            (initial-element))
     "Create a matrix and set it to var"
-	`(defparameter ,var (create-matrix :contents ,contents)))
+    `(defparameter ,var (create-matrix :contents ,contents)))
