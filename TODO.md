@@ -1,29 +1,17 @@
 # Things I have to do
 
-- [x] Finish `det` function to work for matrices bigger that 3x3
-- [x] Write `transpose` function
-- [x] Write `inverse` function
-- [x] Fix the formatting of the matrix if it contains floats
-- [x] Fix the formatting of the matrix if it contains complex numbers
-- [x] Move source code to /src
-- [x] Implement `identity-matrix-p`
-- [x] Implement `square-matrix-p`
 - [ ] Implement `triangular-matrix-p`
 - [ ] Implement `singular-matrix-p`
 - [ ] Implement `left-stochastic-matrix-p`
 - [ ] Implement `right-stochastic-matrix-p`
 - [ ] Implement `doubly-stochastic-matrix-p`
-- [x] Write function to find eigenvalues
-- [ ] Write function to find eigenvector
+- [ ] Write function to find eigenvectors
 - [ ] Make eigenvalues function work with 3x3 matrices
 - [ ] Make eigenvalues function work with large matrices
-- [x] Rename the project to CLMX 
 - [ ] Submit CLMX to quicklisp
-- [x] Write function to apply to each cell
 - [ ] Fix the formatting of the matrix if it contains fractions
-- [x] Rename initial-contents argument in create-matrix to contents
-- [x] `flip-horizontally`, `flip-vertically`
 - [ ] `rotate-right`, `rotate-left`
 - [ ] Ability to concatenate matrices
 - [ ] Make inverse function work with 3x3 matrices
 - [ ] Make inverse function work with large matrices
+- [ ] Write function to multiply matrices cell-by-cell
