@@ -256,3 +256,36 @@ MX> (extract-row-as-list m 2)
 MX> (extract-row-as-list m 3)
 (-1 0 1)
 ```
+
+
+-------------------------------------------------
+### `extract-row-as-vector`
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+INTEGER   | row | Row number
+
+#### Returns
+SIMPLE-VECTOR
+
+#### Description
+Returns the row of the matrix as a vector.
+
+#### Examples
+```lisp
+MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
+M
+MX> m
+#<MATRIX SIZE: (3 3)>
+|  3   4  7 |
+|  2  -2  5 |
+| -1   0  1 |
+MX> (extract-row-as-vector m 1)
+#(3 4 7)
+MX> (extract-row-as-vector m 2)
+#(2 -2 5)
+MX> (extract-row-as-vector m 3)
+#(-1 0 1)
+```

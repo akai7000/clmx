@@ -236,8 +236,10 @@
                   (t "This function for now only finds eigenvalues for 1x1 and 2x2 matrices."))
             (error "Matrix must be a square matrix."))))
             
-(defmacro defmx (var &key (contents nil)
-                           (dimensions nil)
-                           (initial-element))
+(defmacro defmx (var contents)
     "Create a matrix and set it to var.  NOT FINISHED."
     `(defparameter ,var (create-matrix :contents ,contents)))
+	
+(defun checkerboard (rows cols black white)
+	"Create a checkerboard matrix.  NOT FINISHED."
+	(create-matrix :contents '((1 -1 1) (-1 1 -1) (1 -1 1))))
