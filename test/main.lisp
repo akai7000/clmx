@@ -35,7 +35,8 @@
 (test test-zero-matrix
     "Testing zero-matrix."
     (is (= (mx:ref (mx:zero-matrix 4 3) 1 1) 0))
-    (is (= (mx:ref (mx:zero-matrix 4 3) 4 3) 0)))
+    (is (= (mx:ref (mx:zero-matrix 4 3) 4 3) 0))
+	(is (= (mx:ref (mx:zero-matrix 1 1) 1 1) 0)))
   
 (test test-unit-matrix
     "Testing unit-matrix."
