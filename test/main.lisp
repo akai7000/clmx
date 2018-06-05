@@ -49,3 +49,12 @@
     (is (= (mx:ref (mx:identity-matrix 4) 1 2) 0))
     (is (= (mx:ref (mx:identity-matrix 4) 4 1) 0))
     (is (= (mx:ref (mx:identity-matrix 4) 1 4) 0)))
+	
+(test add-matrices
+	"Testing add-matrices."
+	(let ((a (mx:create-matrix :contents '((1 2) (3 4))))
+		  (b (mx:create-matrix :contents '((2 -2) (7 5)))))
+	  (is (= (mx:ref (mx:add-matrices a b) 1 1) 3))
+	  (is (= (mx:ref (mx:add-matrices a b) 1 2) 0))
+	  (is (= (mx:ref (mx:add-matrices a b) 2 1) 10))
+	  (is (= (mx:ref (mx:add-matrices a b) 2 2) 9))))
