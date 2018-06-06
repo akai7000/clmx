@@ -289,3 +289,64 @@ MX> (extract-row-as-vector m 2)
 MX> (extract-row-as-vector m 3)
 #(-1 0 1)
 ```
+
+
+-------------------------------------------------
+### `flip-horizontally`
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix to be flipped
+
+#### Returns
+MATRIX
+
+#### Description
+Flip the matrix horizontally (reverse column order).
+
+#### Examples
+```lisp
+MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
+M
+MX> m
+#<MATRIX SIZE: (3 3)>
+|  3   4  7 |
+|  2  -2  5 |
+| -1   0  1 |
+MX> (flip-horizontally m)
+#<MATRIX SIZE: (3 3)>
+| 7   4   3 |
+| 5  -2   2 |
+| 1   0  -1 |
+```
+
+-------------------------------------------------
+### `flip-vertically`
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix to be flipped
+
+#### Returns
+MATRIX
+
+#### Description
+Flip the matrix vertically (reverse row order).
+
+#### Examples
+```lisp
+MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
+M
+MX> m
+#<MATRIX SIZE: (3 3)>
+|  3   4  7 |
+|  2  -2  5 |
+| -1   0  1 |
+MX> (flip-vertically m)
+#<MATRIX SIZE: (3 3)>
+| -1   0  1 |
+|  2  -2  5 |
+|  3   4  7 |
+```
