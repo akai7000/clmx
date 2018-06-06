@@ -2,6 +2,9 @@
 
 ### `add-matrices`
 
+#### Description
+Adds two matrices matrix-1 and matrix-2 together.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -10,9 +13,6 @@ MATRIX    | matrix-2 | Second matrix
 
 #### Returns
 MATRIX
-
-#### Description
-Adds two matrices matrix-1 and matrix-2 together.
 
 #### Examples
 ```lisp
@@ -35,6 +35,9 @@ MX> (add-matrices
 -------------------------------------------------
 ### `add-scalar`
 
+#### Description
+Add scalar to a matrix.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -43,9 +46,6 @@ NUMBER    | scalar | Scalar to be added to matrix
 
 #### Returns
 MATRIX
-
-#### Description
-Add scalar to a matrix.
 
 #### Examples
 ```lisp
@@ -61,6 +61,9 @@ MX> (add-scalar
 -------------------------------------------------
 ### `apply-to-each-cell`
 
+#### Description
+Apply a function to each cell of a matrix.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -69,9 +72,6 @@ FUNCTION  | function | Function that is applied to each cell
 
 #### Returns
 MATRIX
-
-#### Description
-Apply a function to each cell of a matrix.
 
 #### Examples
 ```lisp
@@ -93,6 +93,9 @@ MX> (apply-to-each-cell
 -------------------------------------------------
 ### `create-matrix`
      
+#### Description
+Create a matrix. This function creates an instance of MATRIX class.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -102,10 +105,6 @@ NUMBER | initial-element | Any real or complex number to be written in every cel
 
 #### Returns
 MATRIX
-
-#### Description
-Create a matrix. This function creates an instance of MATRIX class.
-
 
 #### Examples
 ```lisp
@@ -137,6 +136,9 @@ MX> (create-matrix :dimensions '(3 3))
 -------------------------------------------------
 ### `cols`
 
+#### Description
+Get the number of columns of a matrix.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -144,9 +146,6 @@ MATRIX    | matrix | Matrix
 
 #### Returns
 INTEGER
-
-#### Description
-Get the number of columns of a matrix.
 
 #### Examples
 ```lisp
@@ -166,6 +165,9 @@ MX> (cols
 -------------------------------------------------
 ### `det`
 
+#### Description
+Calculate the determinant of a square matrix.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -173,9 +175,6 @@ MATRIX    | matrix | Matrix
 
 #### Returns
 INTEGER
-
-#### Description
-Calculate the determinant of a square matrix.
 
 #### Examples
 ```lisp
@@ -195,6 +194,9 @@ MX> (det
 -------------------------------------------------
 ### `extract-column-as-list`
 
+#### Description
+Returns the column of the matrix as a list.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -203,9 +205,6 @@ INTEGER   | col | Column number
 
 #### Returns
 LIST
-
-#### Description
-Returns the column of the matrix as a list.
 
 #### Examples
 ```lisp
@@ -232,6 +231,9 @@ MX> (extract-column-as-list m 3)
 -------------------------------------------------
 ### `extract-row-as-list`
 
+#### Description
+Returns the row of the matrix as a list.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -240,9 +242,6 @@ INTEGER   | row | Row number
 
 #### Returns
 LIST
-
-#### Description
-Returns the row of the matrix as a list.
 
 #### Examples
 ```lisp
@@ -269,6 +268,9 @@ MX> (extract-row-as-list m 3)
 -------------------------------------------------
 ### `extract-row-as-vector`
 
+#### Description
+Returns the row of the matrix as a vector.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -277,9 +279,6 @@ INTEGER   | row | Row number
 
 #### Returns
 SIMPLE-VECTOR
-
-#### Description
-Returns the row of the matrix as a vector.
 
 #### Examples
 ```lisp
@@ -306,6 +305,9 @@ MX> (extract-row-as-vector m 3)
 -------------------------------------------------
 ### `flip-horizontally`
 
+#### Description
+Flip the matrix horizontally (reverse column order).
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -313,9 +315,6 @@ MATRIX    | matrix | Matrix to be flipped
 
 #### Returns
 MATRIX
-
-#### Description
-Flip the matrix horizontally (reverse column order).
 
 #### Examples
 ```lisp
@@ -338,6 +337,9 @@ MX> (flip-horizontally m)
 -------------------------------------------------
 ### `flip-vertically`
 
+#### Description
+Flip the matrix vertically (reverse row order).
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -345,9 +347,6 @@ MATRIX    | matrix | Matrix to be flipped
 
 #### Returns
 MATRIX
-
-#### Description
-Flip the matrix vertically (reverse row order).
 
 #### Examples
 ```lisp
@@ -371,6 +370,9 @@ MX> (flip-vertically m)
 -------------------------------------------------
 ### `identity-matrix`
 
+#### Description
+Create an identity matrix.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -379,9 +381,6 @@ INTEGER    | num-cols | Number of columns (optional)
 
 #### Returns
 MATRIX
-
-#### Description
-Create an identity matrix.
 
 #### Examples
 ```lisp
@@ -404,6 +403,9 @@ MX> (identity-matrix 3 6)
 -------------------------------------------------
 ### `identity-matrix-p`
 
+#### Description
+Determine if the matrix is an identity matrix.
+
 #### Arguments
 Data Type | Argument Name | Description
 --------- | ------------- | -----------
@@ -411,9 +413,6 @@ MATRIX    | matrix | Matrix to be checked
 
 #### Returns
 BOOLEAN
-
-#### Description
-Determine if the matrix is an identity matrix.
 
 #### Examples
 ```lisp
