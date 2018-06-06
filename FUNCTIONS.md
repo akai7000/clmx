@@ -211,15 +211,19 @@ Returns the column of the matrix as a list.
 ```lisp
 MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
 M
+
 MX> m
 #<MATRIX SIZE: (3 3)>
 |  3   4  7 |
 |  2  -2  5 |
 | -1   0  1 |
+
 MX> (extract-column-as-list m 1)
 (3 2 -1)
+
 MX> (extract-column-as-list m 2)
 (4 -2 0)
+
 MX> (extract-column-as-list m 3)
 (7 5 1)
 ```
@@ -244,15 +248,19 @@ Returns the row of the matrix as a list.
 ```lisp
 MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
 M
+
 MX> m
 #<MATRIX SIZE: (3 3)>
 |  3   4  7 |
 |  2  -2  5 |
 | -1   0  1 |
+
 MX> (extract-row-as-list m 1)
 (3 4 7)
+
 MX> (extract-row-as-list m 2)
 (2 -2 5)
+
 MX> (extract-row-as-list m 3)
 (-1 0 1)
 ```
@@ -277,15 +285,19 @@ Returns the row of the matrix as a vector.
 ```lisp
 MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
 M
+
 MX> m
 #<MATRIX SIZE: (3 3)>
 |  3   4  7 |
 |  2  -2  5 |
 | -1   0  1 |
+
 MX> (extract-row-as-vector m 1)
 #(3 4 7)
+
 MX> (extract-row-as-vector m 2)
 #(2 -2 5)
+
 MX> (extract-row-as-vector m 3)
 #(-1 0 1)
 ```
@@ -309,11 +321,13 @@ Flip the matrix horizontally (reverse column order).
 ```lisp
 MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
 M
+
 MX> m
 #<MATRIX SIZE: (3 3)>
 |  3   4  7 |
 |  2  -2  5 |
 | -1   0  1 |
+
 MX> (flip-horizontally m)
 #<MATRIX SIZE: (3 3)>
 | 7   4   3 |
@@ -339,14 +353,79 @@ Flip the matrix vertically (reverse row order).
 ```lisp
 MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
 M
+
 MX> m
 #<MATRIX SIZE: (3 3)>
 |  3   4  7 |
 |  2  -2  5 |
 | -1   0  1 |
+
 MX> (flip-vertically m)
 #<MATRIX SIZE: (3 3)>
 | -1   0  1 |
 |  2  -2  5 |
 |  3   4  7 |
+```
+
+
+-------------------------------------------------
+### `identity-matrix`
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+INTEGER    | num-rows | Number of rows
+INTEGER    | num-cols | Number of columns (optional)
+
+#### Returns
+MATRIX
+
+#### Description
+Create an identity matrix.
+
+#### Examples
+```lisp
+MX> (identity-matrix 5)
+#<MATRIX SIZE: (5 5)>
+| 1  0  0  0  0 |
+| 0  1  0  0  0 |
+| 0  0  1  0  0 |
+| 0  0  0  1  0 |
+| 0  0  0  0  1 |
+
+MX> (identity-matrix 3 6)
+#<MATRIX SIZE: (3 6)>
+| 1  0  0  0  0  0 |
+| 0  1  0  0  0  0 |
+| 0  0  1  0  0  0 |
+```
+
+
+-------------------------------------------------
+### `identity-matrix-p`
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix to be checked
+
+#### Returns
+BOOLEAN
+
+#### Description
+Determine if the matrix is an identity matrix.
+
+#### Examples
+```lisp
+MX> (defparameter m1 (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
+M
+
+MX> (identity-matrix-p m1)
+NIL
+
+MX> (defparameter m2 (create-matrix :contents '((1 0 0) (0 1 0) (0 0 1))))
+M
+
+MX> (identity-matrix-p m2)
+T
 ```
