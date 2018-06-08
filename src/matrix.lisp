@@ -204,15 +204,28 @@
                     (loop for col from 1 to w2 collect
                         (r*c matrix-1 matrix-2 row col))))
              "Cannot multiply: dimensions do not match")))
-    
+
+(defun matrix-of-minors (matrix)
+	"Do not use. Not finished."
+    (let ((data (slot-value matrix 'data-array)))
+		data))
+		
 (defun inverse (matrix)
-    "Find the inverse of the matrix."
+    "Do not use. Not finished. Find the inverse of the matrix."
     (let ((w (cols matrix)))
         (if (square-matrix-p matrix)
             (cond ((= w 1) (if (= 0 (ref matrix 1 1))
                                (error "Inverse of this matrix does not exist")
                                (/ 1 (ref matrix 1 1))))
                   ((= w 2) (let ((d (det matrix)))
+                                (if (= 0 d)
+                                    (error "Inverse of this matrix does not exist")
+                                    (multiply-scalar
+                                      (create-matrix :contents (list
+                                                                  (list (ref matrix 2 2) (- (ref matrix 1 2)))
+                                                                  (list (- (ref matrix 2 1)) (ref matrix 1 1))))
+                                      (/ 1 (det matrix))))))
+				  ((= w 3) (let ((d (det matrix)))
                                 (if (= 0 d)
                                     (error "Inverse of this matrix does not exist")
                                     (multiply-scalar
@@ -237,9 +250,13 @@
             (error "Matrix must be a square matrix."))))
             
 (defmacro defmx (var contents)
-    "Create a matrix and set it to var.  NOT FINISHED."
+    "Do not use. Not finished. Create a matrix and set it to var."
     `(defparameter ,var (create-matrix :contents ,contents)))
 	
 (defun checkerboard (rows cols black white)
-	"Create a checkerboard matrix.  NOT FINISHED."
+	"Do not use. Not finished. Create a checkerboard matrix.  NOT FINISHED."
 	(create-matrix :contents '((1 -1 1) (-1 1 -1) (1 -1 1))))
+
+(defun sparsity (matrix)
+	"Do not use. Not finished. Number of 0's in the matrix divided by total number of elements"
+	())

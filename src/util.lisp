@@ -35,3 +35,10 @@
             
 (defun intp (number)
     (= number (round number)))
+	
+(defun round-to (number precision &optional (what #'round))
+    (let ((div (expt 10 precision)))
+         (/ (funcall what (* number div)) div)))
+
+(defun fix-rounding (number)
+	(* 1.0 (round-to number 7)))

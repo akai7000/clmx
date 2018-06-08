@@ -89,7 +89,7 @@
        (let ((new-array (create-default-array (height array-1) (width array-1))))
          (loop for h from 0 below (height array-1) do
           (loop for w from 0 below (width array-1) do
-               (setf (aref new-array h w) (+ (aref array-1 h w) (aref array-2 h w)))))
+               (setf (aref new-array h w) (clmx-util:fix-rounding (+ (aref array-1 h w) (aref array-2 h w))))))
          new-array))
          
              

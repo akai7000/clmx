@@ -15,3 +15,5 @@
 - [ ] Make inverse function work with 3x3 matrices
 - [ ] Make inverse function work with large matrices
 - [ ] Write function to multiply matrices cell-by-cell
+- [ ] Implement `diagonal-matrix`
+- [ ] Implement `trace`

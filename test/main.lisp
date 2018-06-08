@@ -36,7 +36,7 @@
     "Testing zero-matrix."
     (is (= (mx:ref (mx:zero-matrix 4 3) 1 1) 0))
     (is (= (mx:ref (mx:zero-matrix 4 3) 4 3) 0))
-	(is (= (mx:ref (mx:zero-matrix 1 1) 1 1) 0)))
+    (is (= (mx:ref (mx:zero-matrix 1 1) 1 1) 0)))
   
 (test test-unit-matrix
     "Testing unit-matrix."
@@ -50,12 +50,17 @@
     (is (= (mx:ref (mx:identity-matrix 4) 1 2) 0))
     (is (= (mx:ref (mx:identity-matrix 4) 4 1) 0))
     (is (= (mx:ref (mx:identity-matrix 4) 1 4) 0)))
-	
+    
 (test add-matrices
-	"Testing add-matrices."
-	(let ((a (mx:create-matrix :contents '((1 2) (3 4))))
-		  (b (mx:create-matrix :contents '((2 -2) (7 5)))))
-	  (is (= (mx:ref (mx:add-matrices a b) 1 1) 3))
-	  (is (= (mx:ref (mx:add-matrices a b) 1 2) 0))
-	  (is (= (mx:ref (mx:add-matrices a b) 2 1) 10))
-	  (is (= (mx:ref (mx:add-matrices a b) 2 2) 9))))
+    "Testing add-matrices."
+    (let ((a (mx:create-matrix :contents '((1 2) (3 4))))
+          (b (mx:create-matrix :contents '((2 -2) (7 5))))
+          (c (mx:create-matrix :contents '((3.2 2.8 3.7) (-0.4 7.9 2.1))))
+          (d (mx:create-matrix :contents '((0.3 -2.0 -0.5) (1.1 3.4 9.9)))))
+      (is (= (mx:ref (mx:add-matrices a b) 1 1) 3))
+      (is (= (mx:ref (mx:add-matrices a b) 1 2) 0))
+      (is (= (mx:ref (mx:add-matrices a b) 2 1) 10))
+      (is (= (mx:ref (mx:add-matrices a b) 2 2) 9))
+      (is (= (mx:ref (mx:add-matrices c d) 1 2) 0.8))
+      (is (= (mx:ref (mx:add-matrices c d) 2 2) 11.3))
+      (is (= (mx:ref (mx:add-matrices c d) 2 3) 12.0))))

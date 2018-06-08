@@ -18,7 +18,8 @@
 (defpackage :clmx-util
   (:use #:cl)
   (:export :numlength
-           :replace-all))
+           :replace-all
+           :fix-rounding))
 
 (defpackage :clmx-array
   (:use :common-lisp :clmx-util)
