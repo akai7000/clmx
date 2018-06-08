@@ -65,7 +65,7 @@
                     (aref array h w))))))
                     
 (defun scalar+ (array number)
-       (apply-to-cells (lambda (x) (+ x number)) array))
+       (apply-to-cells (lambda (x) (clmx-util:fix-rounding (+ x number))) array))
        
 (defun scalar* (array number)
        (apply-to-cells (lambda (x) (* x number)) array))

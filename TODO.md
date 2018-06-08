@@ -17,3 +17,5 @@
 - [ ] Write function to multiply matrices cell-by-cell
 - [ ] Implement `diagonal-matrix`
 - [ ] Implement `trace`
+- [x] Fix rounding errors on add-matrices
+- [x] Fix rounding errors on add-scalar

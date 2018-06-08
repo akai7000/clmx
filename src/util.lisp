@@ -41,4 +41,4 @@
          (/ (funcall what (* number div)) div)))
 
 (defun fix-rounding (number)
-	(* 1.0 (round-to number 7)))
+	(* 1.0 (round-to number 6)))

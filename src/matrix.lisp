@@ -1,4 +1,5 @@
 ;;;; matrix.lisp
+;;;; matrix.lisp
 ;;; The main source file for CLMX
 
 ;;   Copyright 2018 Andrei Kaplun
@@ -252,10 +253,6 @@
 (defmacro defmx (var contents)
     "Do not use. Not finished. Create a matrix and set it to var."
     `(defparameter ,var (create-matrix :contents ,contents)))
-	
-(defun checkerboard (rows cols black white)
-	"Do not use. Not finished. Create a checkerboard matrix.  NOT FINISHED."
-	(create-matrix :contents '((1 -1 1) (-1 1 -1) (1 -1 1))))
 
 (defun sparsity (matrix)
 	"Do not use. Not finished. Number of 0's in the matrix divided by total number of elements"

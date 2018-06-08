@@ -8,7 +8,7 @@ The goal for this project is to write a library for working with 2D matrices tha
 2) Easy to use - no cryptic function names, clear documentation, lots of examples.
 3) Fast - as the project matures the performance will become higher priority.
 
-Version 0.0.46
+Version 0.0.61
 
 _Works on ABCL, Allegro CL, Clozure CL, SBCL_
 
