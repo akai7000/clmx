@@ -3,7 +3,7 @@
 (asdf:defsystem #:clmx
     :description "Matrix manipulation library for Common Lisp"
     :author "Andrei Kaplun"
-    :license  "MIT"
+    :license  "Apache"
     :version "0.0.1"
     :homepage "https://akai7000.github.io/clmx/"
     :bug-tracker "https://github.com/akai7000/clmx/issues"
@@ -17,9 +17,9 @@
                                (:file "matrix")))))
 
 (asdf:defsystem #:clmx/test
-    :description "Tests for CL-MX library"
+    :description "Tests for CLMX library"
     :author "Andrei Kaplun"
-    :license  "MIT"
+    :license  "Apache"
     :version "0.0.1"
     :depends-on (:clmx :fiveam)
     :components ((:module "test"
