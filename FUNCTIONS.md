@@ -1,5 +1,7 @@
 # Function Reference
 
+[![add-matrices](#add-matrices) | [![add-scalar](#add-scalar)
+
 ### `add-matrices`
 
 #### Description
