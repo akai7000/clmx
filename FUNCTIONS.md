@@ -1,6 +1,6 @@
 # Function Reference
 
-[add-matrices](#https://github.com/akai7000/clmx/blob/master/FUNCTIONS.md#add-matrices) | [add-scalar](#https://github.com/akai7000/clmx/blob/master/FUNCTIONS.md#add-scalar)
+[add-matrices](https://github.com/akai7000/clmx/blob/master/FUNCTIONS.md#add-matrices) | [add-scalar](#add-scalar)
 
 ### `add-matrices`
 
