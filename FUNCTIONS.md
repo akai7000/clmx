@@ -33,7 +33,7 @@ MX> (add-matrices
 | 18.33   12.5 |
 ```
 
-
+[Go to top](#function-reference)
 -------------------------------------------------
 ### `add-scalar`
 
@@ -59,7 +59,7 @@ MX> (add-scalar
 | 104  105  106 |
 ```
 
-
+[Go to top](#function-reference)
 -------------------------------------------------
 ### `apply-to-each-cell`
 
@@ -91,7 +91,7 @@ MX> (apply-to-each-cell
 | 49  64  81 |
 ```
 
-
+[Go to top](#function-reference)
 -------------------------------------------------
 ### `create-matrix`
      
@@ -134,7 +134,7 @@ MX> (create-matrix :dimensions '(3 3))
 | 0  0  0 |
 ```
 
-
+[Go to top](#function-reference)
 -------------------------------------------------
 ### `cols`
 
