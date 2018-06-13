@@ -19,8 +19,8 @@ MATRIX
 #### Examples
 ```lisp
 MX> (add-matrices
-     (create-matrix :contents '((1 2) (3 4)))
-     (create-matrix :contents '((5 -3) (0 2))))
+        (create-matrix :contents '((1 2) (3 4)))
+        (create-matrix :contents '((5 -3) (0 2))))
 #<MATRIX SIZE: (2 2)>
 | 6  -1 |
 | 3   6 |
@@ -53,8 +53,8 @@ MATRIX
 #### Examples
 ```lisp
 MX> (add-scalar
-     (create-matrix :contents '((1 2 3) (4 5 6)))
-     100)
+        (create-matrix :contents '((1 2 3) (4 5 6)))
+        100)
 #<MATRIX SIZE: (2 3)>
 | 101  102  103 |
 | 104  105  106 |
@@ -85,8 +85,8 @@ MX> (apply-to-each-cell (create-matrix :contents '((4 9) (16 25))) #'sqrt)
 | 4.0  5.0 |
 
 MX> (apply-to-each-cell
-		(create-matrix :contents '((1 2 3) (4 5 6) (7 8 9)))
-		(lambda (x) (expt x 2)))
+        (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9)))
+        (lambda (x) (expt x 2)))
 #<MATRIX SIZE: (3 3)>
 |  1   4   9 |
 | 16  25  36 |
@@ -156,14 +156,14 @@ INTEGER
 #### Examples
 ```lisp
 MX> (cols 
-     (create-matrix :dimensions '(100 50) :initial-element 3))
+        (create-matrix :dimensions '(100 50) :initial-element 3))
 50
 
 MX> (cols (zero-matrix 15 20))
 20
 
 MX> (cols 
-     (create-matrix :contents '((1 2 3 4 5) (6 7 8 9 10))))
+        (create-matrix :contents '((1 2 3 4 5) (6 7 8 9 10))))
 5
 ```
 
@@ -186,14 +186,14 @@ INTEGER
 #### Examples
 ```lisp
 MX> (det 
-     (create-matrix :contents '((1 3) (-2 5))))
+        (create-matrix :contents '((1 3) (-2 5))))
 11
 
 MX> (det (unit-matrix 3 3))
 0
 
 MX> (det 
-     (create-matrix :contents '((7 -2 3) (1 6 0) (-4 9 2))))
+        (create-matrix :contents '((7 -2 3) (1 6 0) (-4 9 2))))
 187
 ```
 
