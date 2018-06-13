@@ -1,6 +1,6 @@
 # Function Reference
 
-[add-matrices](https://github.com/akai7000/clmx/blob/master/FUNCTIONS.md#add-matrices) | [add-scalar](#add-scalar)
+[add-matrices](#add-matrices) | [add-scalar](#add-scalar) | [apply-to-each-cell](#apply-to-each-cell) | [create-matrix](#create-matrix) | [cols](#cols) | [det](#det) | [extract-column-as-list](#extract-column-as-list) | [extract-row-as-list](#extract-row-as-list) | [extract-row-as-vector](#extract-row-as-vector) | [flip-horizontally](#flip-horizontally) | [flip-vertically](#flip-vertically) | [identity-matrix](#identity-matrix) | [identity-matrix-p](#identity-matrix-p)
 
 ### `add-matrices`
 
