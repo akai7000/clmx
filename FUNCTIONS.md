@@ -197,6 +197,7 @@ MX> (det
 187
 ```
 
+[Go to top](#start-of-content)
 
 -------------------------------------------------
 ### `extract-column-as-list`
@@ -234,6 +235,7 @@ MX> (extract-column-as-list m 3)
 (7 5 1)
 ```
 
+[Go to top](#start-of-content)
 
 -------------------------------------------------
 ### `extract-row-as-list`
@@ -271,6 +273,7 @@ MX> (extract-row-as-list m 3)
 (-1 0 1)
 ```
 
+[Go to top](#start-of-content)
 
 -------------------------------------------------
 ### `extract-row-as-vector`
@@ -308,6 +311,7 @@ MX> (extract-row-as-vector m 3)
 #(-1 0 1)
 ```
 
+[Go to top](#start-of-content)
 
 -------------------------------------------------
 ### `flip-horizontally`
@@ -341,6 +345,8 @@ MX> (flip-horizontally m)
 | 1   0  -1 |
 ```
 
+[Go to top](#start-of-content)
+
 -------------------------------------------------
 ### `flip-vertically`
 
@@ -373,6 +379,7 @@ MX> (flip-vertically m)
 |  3   4  7 |
 ```
 
+[Go to top](#start-of-content)
 
 -------------------------------------------------
 ### `identity-matrix`
@@ -406,6 +413,7 @@ MX> (identity-matrix 3 6)
 | 0  0  1  0  0  0 |
 ```
 
+[Go to top](#start-of-content)
 
 -------------------------------------------------
 ### `identity-matrix-p`
@@ -435,3 +443,5 @@ M
 MX> (identity-matrix-p m2)
 T
 ```
+
+[Go to top](#start-of-content)
