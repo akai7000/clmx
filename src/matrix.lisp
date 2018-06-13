@@ -206,10 +206,11 @@
                         (r*c matrix-1 matrix-2 row col))))
              "Cannot multiply: dimensions do not match")))
 
-(defun matrix-of-minors (matrix)
+(defun inv (matrix)
 	"Do not use. Not finished."
-    (let ((data (slot-value matrix 'data-array)))
-		data))
+	(if (square-matrix-p matrix)
+		matrix
+		(error "Matrix must be a square matrix.")))
 		
 (defun inverse (matrix)
     "Do not use. Not finished. Find the inverse of the matrix."
@@ -257,3 +258,7 @@
 (defun sparsity (matrix)
 	"Do not use. Not finished. Number of 0's in the matrix divided by total number of elements"
 	())
+	
+(defun shift-right (matrix step)
+	"Do not use. Not finished."
+	matrix)
