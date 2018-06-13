@@ -33,7 +33,8 @@ MX> (add-matrices
 | 18.33   12.5 |
 ```
 
-[Go to top](#function-reference)
+[Go to top](#start-of-content)
+
 -------------------------------------------------
 ### `add-scalar`
 
@@ -59,7 +60,8 @@ MX> (add-scalar
 | 104  105  106 |
 ```
 
-[Go to top](#function-reference)
+[Go to top](#start-of-content)
+
 -------------------------------------------------
 ### `apply-to-each-cell`
 
@@ -91,7 +93,8 @@ MX> (apply-to-each-cell
 | 49  64  81 |
 ```
 
-[Go to top](#function-reference)
+[Go to top](#start-of-content)
+
 -------------------------------------------------
 ### `create-matrix`
      
@@ -134,7 +137,8 @@ MX> (create-matrix :dimensions '(3 3))
 | 0  0  0 |
 ```
 
-[Go to top](#function-reference)
+[Go to top](#start-of-content)
+
 -------------------------------------------------
 ### `cols`
 
@@ -163,6 +167,7 @@ MX> (cols
 5
 ```
 
+[Go to top](#start-of-content)
 
 -------------------------------------------------
 ### `det`
