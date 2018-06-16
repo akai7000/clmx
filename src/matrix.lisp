@@ -206,37 +206,30 @@
                         (r*c matrix-1 matrix-2 row col))))
              "Cannot multiply: dimensions do not match")))
 
-(defun inv (matrix)
-	"Do not use. Not finished."
+(defun remove-row (matrix row-num)
+    (let ((data (slot-value matrix 'data-array)))
+         (create-matrix :contents (remove-elt-from-list (clmx-array:array-to-list data) (1- row-num)))))
+         
+(defun cofactors (matrix)
+	"Calculate matrix of cofactors."
 	(if (square-matrix-p matrix)
-		matrix
+        (let ((w (cols matrix)))
+             (create-matrix :contents
+                 (loop for row from 1 to w collect
+                     (loop for col from 1 to w collect
+                         (let ((d (det (remove-column (remove-row matrix row) col))))
+                              (if (oddp (+ row col))
+                                  (- d)
+                                  d))))))
 		(error "Matrix must be a square matrix.")))
-		
+
+(defun adjugate (matrix)
+    "Calculate adjugate matrix."
+    (transpose (cofactors matrix)))
+
 (defun inverse (matrix)
-    "Do not use. Not finished. Find the inverse of the matrix."
-    (let ((w (cols matrix)))
-        (if (square-matrix-p matrix)
-            (cond ((= w 1) (if (= 0 (ref matrix 1 1))
-                               (error "Inverse of this matrix does not exist")
-                               (/ 1 (ref matrix 1 1))))
-                  ((= w 2) (let ((d (det matrix)))
-                                (if (= 0 d)
-                                    (error "Inverse of this matrix does not exist")
-                                    (multiply-scalar
-                                      (create-matrix :contents (list
-                                                                  (list (ref matrix 2 2) (- (ref matrix 1 2)))
-                                                                  (list (- (ref matrix 2 1)) (ref matrix 1 1))))
-                                      (/ 1 (det matrix))))))
-				  ((= w 3) (let ((d (det matrix)))
-                                (if (= 0 d)
-                                    (error "Inverse of this matrix does not exist")
-                                    (multiply-scalar
-                                      (create-matrix :contents (list
-                                                                  (list (ref matrix 2 2) (- (ref matrix 1 2)))
-                                                                  (list (- (ref matrix 2 1)) (ref matrix 1 1))))
-                                      (/ 1 (det matrix))))))
-                  (t "This function for now only returns the inverse for 1x1 and 2x2 matrices."))
-            (error "Matrix must be a square matrix."))))
+    "Find the inverse of the matrix. Inefficient algorithm for now."
+    (multiply-scalar (adjugate matrix) (/ 1 (det matrix))))
     
 (defun eigenvalues (matrix)
     "Find eigenvalues of a matrix."
@@ -252,7 +245,7 @@
             (error "Matrix must be a square matrix."))))
             
 (defmacro defmx (var contents)
-    "Do not use. Not finished. Create a matrix and set it to var."
+    "Shortcut - creates matrix based on contents and assigns to var."
     `(defparameter ,var (create-matrix :contents ,contents)))
 
 (defun sparsity (matrix)
@@ -261,4 +254,4 @@
 	
 (defun shift-right (matrix step)
 	"Do not use. Not finished."
-	matrix)
+	())

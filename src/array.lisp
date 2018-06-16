@@ -68,7 +68,7 @@
        (apply-to-cells (lambda (x) (clmx-util:fix-rounding (+ x number))) array))
        
 (defun scalar* (array number)
-       (apply-to-cells (lambda (x) (* x number)) array))
+       (apply-to-cells (lambda (x) (clmx-util:fix-rounding (* x number))) array))
 
 (defun format-array (array)
     (let ((max-numlength-vector (reduce-by-column #'max (apply-to-cells #'clmx-util:numlength array))))

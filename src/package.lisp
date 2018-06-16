@@ -41,9 +41,12 @@
   (:use :common-lisp :clmx-array)
   (:export :add-matrices
            :add-scalar
+           :adjugate
            :apply-to-each-cell
            :create-matrix
+           :cofactors
            :cols
+           :defmx
            :det
            :eigenvalues
            :extract-column-as-list
@@ -57,6 +60,8 @@
            :multiply-matrices
            :multiply-scalar
            :ref
+           :remove-column
+           :remove-row
            :rows
            :square-matrix-p
            :transpose

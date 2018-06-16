@@ -126,7 +126,10 @@ MX>
 Let's find the inverse of a matrix:
 ```lisp
 MX> (inverse m1)
-[Not implemented yet]
+#<MATRIX SIZE: (3 3)>
+|  0.116279   0.093023  -0.023256 |
+| -0.325581   0.139535  -0.034884 |
+|  0.162791  -0.069767   0.267442 |
 ```
 
 We can also find a determinant of a square matrix:
