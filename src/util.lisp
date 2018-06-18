@@ -36,9 +36,9 @@
 (defun intp (number)
     (= number (round number)))
 	
-(defun round-to (number precision &optional (what #'round))
+(defun round-to (number precision &optional (func #'round))
     (let ((div (expt 10 precision)))
-         (/ (funcall what (* number div)) div)))
+         (/ (funcall func (* number div)) div)))
 
-(defun fix-rounding (number)
-	(* 1.0 (round-to number 6)))
+(defun fix-rounding (number &optional (precision 6))
+	(* 1.0 (round-to number precision)))

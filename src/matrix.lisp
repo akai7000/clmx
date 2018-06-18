@@ -255,3 +255,6 @@
 (defun shift-right (matrix step)
 	"Do not use. Not finished."
 	())
+    
+(defun random-matrix (rows cols min-num max-num)
+    (create-matrix :contents (clmx-array:random-int-array rows cols min-num max-num)))

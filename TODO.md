@@ -12,6 +12,7 @@
 - [ ] Make eigenvalues function work with 3x3 matrices
 - [ ] Make eigenvalues function work with large matrices
 - [ ] Write function to find eigenvectors
+- [x] Matrices with random values
 - [ ] Submit CLMX to quicklisp
 
 # To-do list for version 0.2

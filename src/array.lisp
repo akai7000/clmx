@@ -91,7 +91,19 @@
           (loop for w from 0 below (width array-1) do
                (setf (aref new-array h w) (clmx-util:fix-rounding (+ (aref array-1 h w) (aref array-2 h w))))))
          new-array))
-         
-             
-    
-    
+        
+(defun random-int-array (height width min-num max-num)
+    (let ((diff (- (1+ max-num) min-num)))
+         (list-to-array
+             (loop for i from 0 to (1- width) collect
+                 (loop for j from 0 to (1- height) collect
+                     (+ (random diff) min-num))))))
+                     
+;(clmx-util:fix-rounding (+ (random diff) min-num) precision))))))
+
+;   0  500    random 500           random (500 - 0) - 0
+;-100  300    (random 400) - 100   random (300 - (-100))
+;-200  200    (random 400) - 200   random (200 - (-200))
+;-100  500    (random 600) - 100   random (500 - (-100))
+; -10  200    (random 210) - 10
+
