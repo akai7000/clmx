@@ -34,7 +34,8 @@
            :scalar+
            :scalar*
            :format-array
-           :add-arrays))
+           :add-arrays
+           :random-int-array))
            
 (defpackage :clmx-matrix
   (:nicknames #:clmx #:mx)
