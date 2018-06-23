@@ -14,6 +14,7 @@
 - [ ] Write function to find eigenvectors
 - [x] Matrices with random values
 - [ ] Submit CLMX to quicklisp
+- [ ] Improve performance of inverse
 
 # To-do list for version 0.2
 

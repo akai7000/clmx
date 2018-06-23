@@ -42,3 +42,9 @@
 
 (defun fix-rounding (number &optional (precision 6))
 	(* 1.0 (round-to number precision)))
+    
+(defun timer (function &rest params)
+    "Function to test how many seconds a function takes."
+    (let ((real-base (get-internal-real-time)))
+         (apply function params)
+         (* 1.0 (/ (- (get-internal-real-time) real-base) internal-time-units-per-second))))

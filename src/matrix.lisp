@@ -230,7 +230,7 @@
 (defun inverse (matrix)
     "Find the inverse of the matrix. Inefficient algorithm for now."
     (multiply-scalar (adjugate matrix) (/ 1 (det matrix))))
-    
+
 (defun eigenvalues (matrix)
     "Find eigenvalues of a matrix."
     (let ((w (cols matrix)))

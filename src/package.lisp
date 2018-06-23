@@ -19,7 +19,8 @@
   (:use #:cl)
   (:export :numlength
            :replace-all
-           :fix-rounding))
+           :fix-rounding
+           :timer))
 
 (defpackage :clmx-array
   (:use :common-lisp :clmx-util)
