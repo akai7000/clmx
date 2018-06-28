@@ -40,8 +40,11 @@
     (let ((div (expt 10 precision)))
          (/ (funcall func (* number div)) div)))
 
+;(defun fix-rounding (number &optional (precision 6))
+;	(* 1.0 (round-to number precision)))
+    
 (defun fix-rounding (number &optional (precision 6))
-	(* 1.0 (round-to number precision)))
+	(round-to number precision))
     
 (defun timer (function &rest params)
     "Function to test how many seconds a function takes."

@@ -230,7 +230,27 @@
 (defun inverse (matrix)
     "Find the inverse of the matrix. Inefficient algorithm for now."
     (multiply-scalar (adjugate matrix) (/ 1 (det matrix))))
-
+    
+(defun swap-rows (matrix row-1 row-2)
+    "Swap rows."
+    (let ((data (slot-value matrix 'data-array)))
+         (clmx-array:array-to-list data)))
+         
+(defun a-inverse ()
+    (inverse (random-matrix 9 9 0 20)))
+    
+(defun b-inverse ()
+    (fast-inverse (random-matrix 9 9 0 20)))
+    
+(defun fast-inverse (matrix)
+	"Attempt at speeding up inverse function."
+	(if (square-matrix-p matrix)
+        (let ((w (cols matrix)))
+                 (loop for row from 1 to w collect
+                     (loop for col from 1 to w collect
+                         (det (remove-column (remove-row matrix row) col)))))
+		(error "Matrix must be a square matrix.")))
+        
 (defun eigenvalues (matrix)
     "Find eigenvalues of a matrix."
     (let ((w (cols matrix)))
