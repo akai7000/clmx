@@ -16,7 +16,7 @@
 ;;   limitations under the License.
 
 (defpackage #:clmx-test
-    (:nicknames #:clmxt #:mxt)
-    (:use #:cl #:fiveam)
+    (:nicknames #:clmxt)
+    (:use #:cl #:fiveam :clmx-matrix)
     (:export #:run!
              #:all-tests))

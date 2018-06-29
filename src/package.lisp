@@ -39,7 +39,7 @@
            :random-int-array))
            
 (defpackage :clmx-matrix
-  (:nicknames #:clmx #:mx)
+  (:nicknames #:clmx)
   (:use :common-lisp :clmx-array)
   (:export :add-matrices
            :add-scalar
