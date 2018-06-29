@@ -51,15 +51,16 @@
 
 (test test-adjugate
     "Testing adjugate."
-    (is (= (ref (adjugate (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 1 1) 10))
-    (is (= (ref (adjugate (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 1 2) 8))
-    (is (= (ref (adjugate (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 1 3) -2))
-    (is (= (ref (adjugate (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 2 1) -28))
-    (is (= (ref (adjugate (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 2 2) 12))
-    (is (= (ref (adjugate (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 2 3) -3))
-    (is (= (ref (adjugate (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 3 1) 14))
-    (is (= (ref (adjugate (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 3 2) -6))
-    (is (= (ref (adjugate (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 3 3) 23)))
+    (let ((a (adjugate (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4))))))
+        (is (= (ref a 1 1) 10))
+        (is (= (ref a 1 2) 8))
+        (is (= (ref a 1 3) -2))
+        (is (= (ref a 2 1) -28))
+        (is (= (ref a 2 2) 12))
+        (is (= (ref a 2 3) -3))
+        (is (= (ref a 3 1) 14))
+        (is (= (ref a 3 2) -6))
+        (is (= (ref a 3 3) 23))))
     
 (test test-apply-to-each-cell
 	"Testing apply-to-each-cell."
@@ -82,15 +83,16 @@
   
 (test test-cofactors
     "Testing cofactors."
-    (is (= (ref (cofactors (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 1 1) 10))
-    (is (= (ref (cofactors (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 1 2) -28))
-    (is (= (ref (cofactors (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 1 3) 14))
-    (is (= (ref (cofactors (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 2 1) 8))
-    (is (= (ref (cofactors (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 2 2) 12))
-    (is (= (ref (cofactors (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 2 3) -6))
-    (is (= (ref (cofactors (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 3 1) -2))
-    (is (= (ref (cofactors (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 3 2) -3))
-    (is (= (ref (cofactors (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4)))) 3 3) 23)))
+    (let ((a (cofactors (create-matrix :contents '((3 -2 0) (7 3 1) (0 2 4))))))
+        (is (= (ref a 1 1) 10))
+        (is (= (ref a 1 2) -28))
+        (is (= (ref a 1 3) 14))
+        (is (= (ref a 2 1) 8))
+        (is (= (ref a 2 2) 12))
+        (is (= (ref a 2 3) -6))
+        (is (= (ref a 3 1) -2))
+        (is (= (ref a 3 2) -3))
+        (is (= (ref a 3 3) 23))))
     
 (test test-cols
     "Testing cols."
