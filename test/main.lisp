@@ -101,6 +101,27 @@
     (is (= (cols (create-matrix :dimensions '(10 20))) 20))
     (is (= (cols (create-matrix :dimensions '(10 20) :initial-element 5)) 20)))
     
+(test test-defmx
+    "Testing defmx."
+    (let ((b (eval (defmx a '((1 2) (3 -1))))))
+        (is (= (ref b 1 1) 1))
+        (is (= (ref b 1 2) 2))
+        (is (= (ref b 2 1) 3))
+        (is (= (ref b 2 2) -1))))
+        
+(test test-det
+    "Testing det."
+    (let ((a (create-matrix :contents '((3 8) (4 6))))
+          (b (create-matrix :contents '((6 1 1) (4 -2 5) (2 8 7))))
+          (c (create-matrix :contents '((1 4 2 0) (-3 -2 5 5) (0 2 4 1) (-2 7 3 6))))
+          (d (create-matrix :dimensions '(5 5) :initial-element 1))
+          (e (create-matrix :dimensions '(6 6) :initial-element 5)))
+        (is (= (det a) -14))
+        (is (= (det b) -306))
+        (is (= (det c) -27))
+        (is (= (det d) 0))
+        (is (= (det e) 0))))
+        
 (test test-zero-matrix
     "Testing zero-matrix."
     (is (= (ref (zero-matrix 4 3) 1 1) 0))
