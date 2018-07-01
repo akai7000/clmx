@@ -121,7 +121,12 @@
         (is (= (det c) -27))
         (is (= (det d) 0))
         (is (= (det e) 0))))
-        
+
+(test test-eigenvalues
+    "Testing eigenvalues."
+    (is (= (nth-value 0 (eigenvalues (create-matrix :contents '((6 -1) (2 3))))) 5.0))
+    (is (= (nth-value 1 (eigenvalues (create-matrix :contents '((6 -1) (2 3))))) 4.0)))
+    
 (test test-zero-matrix
     "Testing zero-matrix."
     (is (= (ref (zero-matrix 4 3) 1 1) 0))
