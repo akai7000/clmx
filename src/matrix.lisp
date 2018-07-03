@@ -241,21 +241,6 @@
     "Swap rows."
     (let ((data (slot-value matrix 'data-array)))
          (clmx-array:array-to-list data)))
-         
-(defun a-inverse ()
-    (inverse (random-matrix 9 9 0 20)))
-    
-(defun b-inverse ()
-    (fast-inverse (random-matrix 9 9 0 20)))
-    
-(defun fast-inverse (matrix)
-	"Attempt at speeding up inverse function."
-	(if (square-matrix-p matrix)
-        (let ((w (cols matrix)))
-                 (loop for row from 1 to w collect
-                     (loop for col from 1 to w collect
-                         (det (remove-column (remove-row matrix row) col)))))
-		(error "Matrix must be a square matrix.")))
         
 (defun eigenvalues (matrix)
     "Find eigenvalues of a matrix."
@@ -273,14 +258,6 @@
 (defmacro defmx (var contents)
     "Shortcut - creates matrix based on contents and assigns to var."
     `(defparameter ,var (create-matrix :contents ,contents)))
-
-(defun sparsity (matrix)
-	"Do not use. Not finished. Number of 0's in the matrix divided by total number of elements"
-	())
-	
-(defun shift-right (matrix step)
-	"Do not use. Not finished."
-	())
     
 (defun random-matrix (rows cols min-num max-num)
     (create-matrix :contents (clmx-array:random-int-array rows cols min-num max-num)))
