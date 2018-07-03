@@ -236,11 +236,6 @@
 (defun inverse (matrix)
     "Find the inverse of the matrix. Inefficient algorithm for now."
     (multiply-scalar (adjugate matrix) (/ 1 (det matrix))))
-    
-(defun swap-rows (matrix row-1 row-2)
-    "Swap rows."
-    (let ((data (slot-value matrix 'data-array)))
-         (clmx-array:array-to-list data)))
         
 (defun eigenvalues (matrix)
     "Find eigenvalues of a matrix."
