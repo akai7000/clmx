@@ -52,6 +52,7 @@
            :det
            :eigenvalues
            :extract-column-as-list
+           :extract-column-as-vector
            :extract-row-as-list
            :extract-row-as-vector
            :flip-horizontally

@@ -106,18 +106,24 @@
 (defun apply-to-each-cell (matrix function)
     (let ((data (slot-value matrix 'data-array)))
         (create-matrix :contents (clmx-array:apply-to-cells function data))))
-         
-(defun extract-row-as-list (matrix row)
-    (loop for col from 1 to (cols matrix) collect
-        (ref matrix row col)))
-            
-(defun extract-row-as-vector (matrix row)
-    (list-to-array (extract-row-as-list matrix row)))
-    
+
 (defun extract-column-as-list (matrix col)
     "Returns the column of the matrix as a list."
     (loop for row from 1 to (rows matrix) collect
         (ref matrix row col)))
+        
+(defun extract-column-as-vector (matrix col)
+    "Returns the column of the matrix as a vector."
+    (list-to-array (extract-column-as-list matrix col)))
+    
+(defun extract-row-as-list (matrix row)
+    "Returns the row of the matrix as a list."
+    (loop for col from 1 to (cols matrix) collect
+        (ref matrix row col)))
+            
+(defun extract-row-as-vector (matrix row)
+    "Returns the row of the matrix as a vector."
+    (list-to-array (extract-row-as-list matrix row)))
     
 (defun square-matrix-p (matrix)
     "Determine if the matrix is a square matrix."

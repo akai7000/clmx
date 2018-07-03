@@ -1,6 +1,6 @@
 # Function Reference
 
-[add-matrices](#add-matrices) | [add-scalar](#add-scalar) | [apply-to-each-cell](#apply-to-each-cell) | [create-matrix](#create-matrix) | [cols](#cols) | [det](#det) | [extract-column-as-list](#extract-column-as-list) | [extract-row-as-list](#extract-row-as-list) | [extract-row-as-vector](#extract-row-as-vector) | [flip-horizontally](#flip-horizontally) | [flip-vertically](#flip-vertically) | [identity-matrix](#identity-matrix) | [identity-matrix-p](#identity-matrix-p)
+[add-matrices](#add-matrices) | [add-scalar](#add-scalar) | [apply-to-each-cell](#apply-to-each-cell) | [create-matrix](#create-matrix) | [cols](#cols) | [det](#det) | [extract-column-as-list](#extract-column-as-list) | [extract-column-as-vector](#extract-column-as-vector) | [extract-row-as-list](#extract-row-as-list) | [extract-row-as-vector](#extract-row-as-vector) | [flip-horizontally](#flip-horizontally) | [flip-vertically](#flip-vertically) | [identity-matrix](#identity-matrix) | [identity-matrix-p](#identity-matrix-p)
 
 ### `add-matrices`
 
@@ -233,6 +233,44 @@ MX> (extract-column-as-list m 2)
 
 MX> (extract-column-as-list m 3)
 (7 5 1)
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `extract-column-as-vector`
+
+#### Description
+Returns the column of the matrix as a vector.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+INTEGER   | col | Column number
+
+#### Returns
+SIMPLE-VECTOR
+
+#### Examples
+```lisp
+MX> (defparameter m (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
+M
+
+MX> m
+#<MATRIX SIZE: (3 3)>
+|  3   4  7 |
+|  2  -2  5 |
+| -1   0  1 |
+
+MX> (extract-column-as-vector m 1)
+#(3 2 -1)
+
+MX> (extract-column-as-vector m 2)
+#(4 -2 0)
+
+MX> (extract-column-as-vector m 3)
+#(7 5 1)
 ```
 
 [Go to top](#start-of-content)

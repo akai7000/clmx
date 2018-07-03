@@ -127,6 +127,34 @@
     (is (= (nth-value 0 (eigenvalues (create-matrix :contents '((6 -1) (2 3))))) 5.0))
     (is (= (nth-value 1 (eigenvalues (create-matrix :contents '((6 -1) (2 3))))) 4.0)))
     
+(test test-extract-column-as-list
+    "Testing extract-column-as-list."
+    (let ((a (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1)))))
+        (is (equal (extract-column-as-list a 1) '(3 2 -1)))
+        (is (equal (extract-column-as-list a 2) '(4 -2 0)))
+        (is (equal (extract-column-as-list a 3) '(7 5 1)))))
+
+(test test-extract-column-as-vector
+    "Testing extract-column-as-vector."
+    (let ((a (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1)))))
+        (is (equalp (extract-column-as-vector a 1) #(3 2 -1)))
+        (is (equalp (extract-column-as-vector a 2) #(4 -2 0)))
+        (is (equalp (extract-column-as-vector a 3) #(7 5 1)))))
+        
+(test test-extract-row-as-list
+    "Testing extract-row-as-list."
+    (let ((a (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1)))))
+        (is (equal (extract-row-as-list a 1) '(3 4 7)))
+        (is (equal (extract-row-as-list a 2) '(2 -2 5)))
+        (is (equal (extract-row-as-list a 3) '(-1 0 1)))))
+        
+(test test-extract-row-as-vector
+    "Testing extract-row-as-vector."
+    (let ((a (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1)))))
+        (is (equalp (extract-row-as-vector a 1) #(3 4 7)))
+        (is (equalp (extract-row-as-vector a 2) #(2 -2 5)))
+        (is (equalp (extract-row-as-vector a 3) #(-1 0 1)))))
+        
 (test test-zero-matrix
     "Testing zero-matrix."
     (is (= (ref (zero-matrix 4 3) 1 1) 0))
