@@ -236,7 +236,7 @@
 (defun inverse (matrix)
     "Find the inverse of the matrix. Inefficient algorithm for now."
     (multiply-scalar (adjugate matrix) (/ 1 (det matrix))))
-        
+   
 (defun eigenvalues (matrix)
     "Find eigenvalues of a matrix."
     (let ((w (cols matrix)))
@@ -253,6 +253,6 @@
 (defmacro defmx (var contents)
     "Shortcut - creates matrix based on contents and assigns to var."
     `(defparameter ,var (create-matrix :contents ,contents)))
-    
+
 (defun random-matrix (rows cols min-num max-num)
     (create-matrix :contents (clmx-array:random-int-array rows cols min-num max-num)))

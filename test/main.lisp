@@ -155,6 +155,26 @@
         (is (equalp (extract-row-as-vector a 2) #(2 -2 5)))
         (is (equalp (extract-row-as-vector a 3) #(-1 0 1)))))
         
+(test test-flip-horizontally
+    "Testing flip-horizontally."
+    (let ((a (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1)))))
+        (is (= (ref (flip-horizontally a) 1 1) 7))
+        (is (= (ref (flip-horizontally a) 1 2) 4))
+        (is (= (ref (flip-horizontally a) 1 3) 3))
+        (is (= (ref (flip-horizontally a) 3 1) 1))
+        (is (= (ref (flip-horizontally a) 3 2) 0))
+        (is (= (ref (flip-horizontally a) 3 3) -1))))
+
+(test test-flip-vertically
+    "Testing flip-vertically."
+    (let ((a (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1)))))
+        (is (= (ref (flip-vertically a) 1 1) -1))
+        (is (= (ref (flip-vertically a) 1 2) 0))
+        (is (= (ref (flip-vertically a) 1 3) 1))
+        (is (= (ref (flip-vertically a) 3 1) 3))
+        (is (= (ref (flip-vertically a) 3 2) 4))
+        (is (= (ref (flip-vertically a) 3 3) 7))))
+
 (test test-zero-matrix
     "Testing zero-matrix."
     (is (= (ref (zero-matrix 4 3) 1 1) 0))
