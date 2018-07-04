@@ -175,6 +175,49 @@
         (is (= (ref (flip-vertically a) 3 2) 4))
         (is (= (ref (flip-vertically a) 3 3) 7))))
 
+(test test-identity-matrix
+    "Testing identity-matrix."
+    (is (= (ref (identity-matrix 4) 1 1) 1))
+    (is (= (ref (identity-matrix 4) 4 4) 1))
+    (is (= (ref (identity-matrix 4) 1 2) 0))
+    (is (= (ref (identity-matrix 4) 4 1) 0))
+    (is (= (ref (identity-matrix 4) 1 4) 0)))
+    
+(test test-identity-matrix-p
+    "Testing identity-matrix-p."
+    (let ((a (create-matrix :contents '((3 4 7) (2 -2 5) (-1 0 1))))
+          (b (create-matrix :contents '((1 0 0) (0 1 0) (0 0 1)))))
+        (is (not (identity-matrix-p a)))
+        (is (identity-matrix-p b))))
+
+(test test-inverse
+    "Testing inverse."
+    (let ((a (create-matrix :contents '((4 7) (2 6))))
+          (b (create-matrix :contents '((3 0 2) (2 0 -2) (0 1 1))))
+          (c (identity-matrix 3)))
+        (is (= (ref (inverse a) 1 1) 0.6))
+        (is (= (ref (inverse a) 1 2) -0.7))
+        (is (= (ref (inverse a) 2 1) -0.2))
+        (is (= (ref (inverse a) 2 2) 0.4))
+        (is (= (ref (inverse b) 1 1) 0.2))
+        (is (= (ref (inverse b) 1 2) 0.2))
+        (is (= (ref (inverse b) 1 3) 0.0))
+        (is (= (ref (inverse b) 2 1) -0.2))
+        (is (= (ref (inverse b) 2 2) 0.3))
+        (is (= (ref (inverse b) 2 3) 1.0))
+        (is (= (ref (inverse b) 3 1) 0.2))
+        (is (= (ref (inverse b) 3 2) -0.3))
+        (is (= (ref (inverse b) 3 3) 0.0))
+        (is (= (ref (inverse c) 1 1) 1.0))
+        (is (= (ref (inverse c) 1 2) 0.0))
+        (is (= (ref (inverse c) 1 3) 0.0))
+        (is (= (ref (inverse c) 2 1) 0.0))
+        (is (= (ref (inverse c) 2 2) 1.0))
+        (is (= (ref (inverse c) 2 3) 0.0))
+        (is (= (ref (inverse c) 3 1) 0.0))
+        (is (= (ref (inverse c) 3 2) 0.0))
+        (is (= (ref (inverse c) 3 3) 1.0))))
+        
 (test test-zero-matrix
     "Testing zero-matrix."
     (is (= (ref (zero-matrix 4 3) 1 1) 0))
@@ -186,11 +229,5 @@
     (is (= (ref (unit-matrix 4 3) 1 1) 1))
     (is (= (ref (unit-matrix 4 3) 4 3) 1)))
   
-(test test-identity-matrix
-    "Testing identity-matrix."
-    (is (= (ref (identity-matrix 4) 1 1) 1))
-    (is (= (ref (identity-matrix 4) 4 4) 1))
-    (is (= (ref (identity-matrix 4) 1 2) 0))
-    (is (= (ref (identity-matrix 4) 4 1) 0))
-    (is (= (ref (identity-matrix 4) 1 4) 0)))
+
     

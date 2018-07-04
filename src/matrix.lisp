@@ -235,7 +235,10 @@
 
 (defun inverse (matrix)
     "Find the inverse of the matrix. Inefficient algorithm for now."
-    (multiply-scalar (adjugate matrix) (/ 1 (det matrix))))
+    (let ((d (det matrix)))
+        (if (= d 0)
+            (error "Inverse does not exist - determinant of matrix is 0.")
+            (multiply-scalar (adjugate matrix) (/ 1 (det matrix))))))
    
 (defun eigenvalues (matrix)
     "Find eigenvalues of a matrix."
