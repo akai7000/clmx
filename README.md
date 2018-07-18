@@ -22,7 +22,7 @@ _(this is not working yet; I'm yet to submit it to quicklisp)_
 
 ### Quick Start
 
-Create you own package and include clmx-matrix:
+Create your own package and include clmx-matrix:
 ```lisp
 CL-USER> (defpackage :clmx-user
              (:use #:cl #:clmx-matrix))

@@ -15,6 +15,8 @@
 - [x] Matrices with random values
 - [ ] Submit CLMX to quicklisp
 - [ ] Improve performance of inverse
+- [ ] Write `matrixp`
+- [ ] Write `matrix-equals-p`
 
 # To-do list for version 0.2
 
@@ -26,3 +28,6 @@
 - [ ] Ability to concatenate matrices
 - [ ] Shift columns right/left 
 - [ ] Shift rows up/down
+
+# To-do list for version 0.3
+- [ ] Implement `solve` to solve a system of linear equations

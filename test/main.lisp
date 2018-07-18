@@ -64,11 +64,13 @@
     
 (test test-apply-to-each-cell
 	"Testing apply-to-each-cell."
-    (is (= (ref (apply-to-each-cell (create-matrix :contents '((4 9) (16 25))) #'sqrt) 1 1) 2.0))
-    (is (= (ref (apply-to-each-cell (create-matrix :contents '((4 9) (16 25))) #'sqrt) 2 2) 5.0))
-    (is (= (ref (apply-to-each-cell (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9))) (lambda (x) (expt x 2))) 1 3) 9))
-    (is (= (ref (apply-to-each-cell (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9))) (lambda (x) (expt x 2))) 3 1) 49))
-    (is (= (ref (apply-to-each-cell (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9))) (lambda (x) (expt x 2))) 3 3) 81)))
+    (let ((a (apply-to-each-cell (create-matrix :contents '((4 9) (16 25))) #'sqrt))
+          (b (apply-to-each-cell (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9))) (lambda (x) (expt x 2)))))
+    (is (= (ref a 1 1) 2.0))
+    (is (= (ref a 2 2) 5.0))
+    (is (= (ref b 1 3) 9))
+    (is (= (ref b 3 1) 49))
+    (is (= (ref b 3 3) 81))))
     
 (test test-create-matrix
     "Testing create-matrix."
@@ -192,32 +194,107 @@
 
 (test test-inverse
     "Testing inverse."
-    (let ((a (create-matrix :contents '((4 7) (2 6))))
-          (b (create-matrix :contents '((3 0 2) (2 0 -2) (0 1 1))))
-          (c (identity-matrix 3)))
-        (is (= (ref (inverse a) 1 1) 0.6))
-        (is (= (ref (inverse a) 1 2) -0.7))
-        (is (= (ref (inverse a) 2 1) -0.2))
-        (is (= (ref (inverse a) 2 2) 0.4))
-        (is (= (ref (inverse b) 1 1) 0.2))
-        (is (= (ref (inverse b) 1 2) 0.2))
-        (is (= (ref (inverse b) 1 3) 0.0))
-        (is (= (ref (inverse b) 2 1) -0.2))
-        (is (= (ref (inverse b) 2 2) 0.3))
-        (is (= (ref (inverse b) 2 3) 1.0))
-        (is (= (ref (inverse b) 3 1) 0.2))
-        (is (= (ref (inverse b) 3 2) -0.3))
-        (is (= (ref (inverse b) 3 3) 0.0))
-        (is (= (ref (inverse c) 1 1) 1.0))
-        (is (= (ref (inverse c) 1 2) 0.0))
-        (is (= (ref (inverse c) 1 3) 0.0))
-        (is (= (ref (inverse c) 2 1) 0.0))
-        (is (= (ref (inverse c) 2 2) 1.0))
-        (is (= (ref (inverse c) 2 3) 0.0))
-        (is (= (ref (inverse c) 3 1) 0.0))
-        (is (= (ref (inverse c) 3 2) 0.0))
-        (is (= (ref (inverse c) 3 3) 1.0))))
+    (let ((a (inverse (create-matrix :contents '((4 7) (2 6)))))
+          (b (inverse (create-matrix :contents '((3 0 2) (2 0 -2) (0 1 1)))))
+          (c (inverse (identity-matrix 3))))
+        (is (= (ref a 1 1) 0.6))
+        (is (= (ref a 1 2) -0.7))
+        (is (= (ref a 2 1) -0.2))
+        (is (= (ref a 2 2) 0.4))
+        (is (= (ref b 1 1) 0.2))
+        (is (= (ref b 1 2) 0.2))
+        (is (= (ref b 1 3) 0.0))
+        (is (= (ref b 2 1) -0.2))
+        (is (= (ref b 2 2) 0.3))
+        (is (= (ref b 2 3) 1.0))
+        (is (= (ref b 3 1) 0.2))
+        (is (= (ref b 3 2) -0.3))
+        (is (= (ref b 3 3) 0.0))
+        (is (= (ref c 1 1) 1.0))
+        (is (= (ref c 1 2) 0.0))
+        (is (= (ref c 1 3) 0.0))
+        (is (= (ref c 2 1) 0.0))
+        (is (= (ref c 2 2) 1.0))
+        (is (= (ref c 2 3) 0.0))
+        (is (= (ref c 3 1) 0.0))
+        (is (= (ref c 3 2) 0.0))
+        (is (= (ref c 3 3) 1.0))))
         
+(test test-multiply-matrices
+    "Testing multiply-matrices."
+    (let ((a (multiply-matrices (create-matrix :contents '((3 2) (-1 4)))
+                                (create-matrix :contents '((1 0) (5 -7)))))
+          (b (multiply-matrices (create-matrix :contents '((3 2) (-1 4) (5 3)))
+                                (create-matrix :contents '((1 0 11) (5 -7 2)))))
+          (c (multiply-matrices (create-matrix :contents '((3 2 5) (-1 4 3)))
+                                (create-matrix :contents '((1 0) (5 -7) (11 2))))))
+        (is (= (ref a 1 1) 13))
+        (is (= (ref a 1 2) -14))
+        (is (= (ref a 2 1) 19))
+        (is (= (ref a 2 2) -28))
+        (is (= (ref b 1 1) 13))
+        (is (= (ref b 1 2) -14))
+        (is (= (ref b 1 3) 37))
+        (is (= (ref b 2 1) 19))
+        (is (= (ref b 2 2) -28))
+        (is (= (ref b 2 3) -3))
+        (is (= (ref b 3 1) 20))
+        (is (= (ref b 3 2) -21))
+        (is (= (ref b 3 3) 61))
+        (is (= (ref c 1 1) 68))
+        (is (= (ref c 1 2) -4))
+        (is (= (ref c 2 1) 52))
+        (is (= (ref c 2 2) -22))))
+
+(test test-multiply-scalar
+    "Testing multiply-scalar."
+    (let ((a (multiply-scalar (create-matrix :contents '((3 2) (-1 0))) 10))
+          (b (multiply-scalar (create-matrix :contents '((5) (7) (-1))) 4))
+          (c (multiply-scalar (create-matrix :contents '((3.2 0 -0.1))) 100)))
+    (is (= (ref a 1 1) 30))
+    (is (= (ref a 1 2) 20))
+    (is (= (ref a 2 1) -10))
+    (is (= (ref a 2 2) 0))
+    (is (= (ref b 1 1) 20))
+    (is (= (ref b 2 1) 28))
+    (is (= (ref b 3 1) -4))
+    (is (= (ref c 1 1) 320.0))
+    (is (= (ref c 1 2) 0.0))
+    (is (= (ref c 1 3) -10.0))))
+    
+(test test-ref
+    "Testing ref."
+    (let ((a (create-matrix :contents '((5))))
+          (b (create-matrix :dimensions '(40 25) :initial-element 7)))
+    (is (= (ref a 1 1) 5))
+    (is (= (ref b 1 1) 7))
+    (is (= (ref b 13 8) 7))
+    (is (= (ref b 40 25) 7))))
+    
+    
+(test test-remove-column
+    "Testing remove-column."
+    (is (= 0 0)))
+    
+(test test-remove-row
+    "Testing remove-row."
+    (is (= 0 0)))
+
+(test test-rows
+    "Testing rows."
+    (is (= (rows (create-matrix :contents '((1 2 3) (4 5 6)))) 2))
+    (is (= (rows (create-matrix :contents #2A ((1 2 3) (4 5 6)))) 2))
+    (is (= (rows (create-matrix :dimensions '(10 20))) 10))
+    (is (= (rows (create-matrix :dimensions '(10 20) :initial-element 5)) 10)))
+    
+(test test-square-matrix-p
+    "Testing square-matrix-p."
+    (is (= 0 0)))
+
+(test test-transpose
+    "Testing transpose."
+    (is (= 0 0)))
+    
 (test test-zero-matrix
     "Testing zero-matrix."
     (is (= (ref (zero-matrix 4 3) 1 1) 0))
