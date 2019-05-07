@@ -1,6 +1,8 @@
 # Function Reference
 
-[add-matrices](#add-matrices) | [add-scalar](#add-scalar) | [apply-to-each-cell](#apply-to-each-cell) | [create-matrix](#create-matrix) | [cols](#cols) | [det](#det) | [extract-column-as-list](#extract-column-as-list) | [extract-column-as-vector](#extract-column-as-vector) | [extract-row-as-list](#extract-row-as-list) | [extract-row-as-vector](#extract-row-as-vector) | [flip-horizontally](#flip-horizontally) | [flip-vertically](#flip-vertically) | [identity-matrix](#identity-matrix) | [identity-matrix-p](#identity-matrix-p)
+[add-matrices](#add-matrices) | [add-scalar](#add-scalar) | [adjugate](#adjugate) | [apply-to-each-cell](#apply-to-each-cell) | [create-matrix](#create-matrix) | [cofactors](#cofactors) | [cols](#cols) | [defmx](#defmx) | [det](#det) | [eigenvalues](#eigenvalues) | [extract-column-as-list](#extract-column-as-list) | [extract-column-as-vector](#extract-column-as-vector) | [extract-row-as-list](#extract-row-as-list) | [extract-row-as-vector](#extract-row-as-vector) | [flip-horizontally](#flip-horizontally) | [flip-vertically](#flip-vertically) | [identity-matrix](#identity-matrix) | [identity-matrix-p](#identity-matrix-p)| [inverse](#inverse) | [multiply-matrices](#multiply-matrices) | [multiply-scalar](#multiply-scalar) | [random-matrix](#random-matrix) | [ref](#ref) | 
+[remove-column](#remove-column) | [remove-row](#remove-row) | [rows](#rows) | [set-value!](#set-value) | [square-matrix-p](#square-matrix-p) | [transpose](#transpose) | [unit-matrix](#unit-matrix) | [zero-matrix](#zero-matrix)
+
 
 ### `add-matrices`
 
@@ -58,6 +60,36 @@ MX> (add-scalar
 #<MATRIX SIZE: (2 3)>
 | 101  102  103 |
 | 104  105  106 |
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `adjugate`
+
+#### Description
+Calculate adjugate matrix (transpose of cofactor matrix).
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (adjugate (create-matrix :contents '((1 2) (3 4))))
+#<MATRIX SIZE: (2 2)>
+|  4  -2 |
+| -3   1 |
+
+MX> (adjugate (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+#<CLMX-MATRIX::MATRIX SIZE: (3 3)>
+| -10  -6   10 |
+|  53   9  -15 |
+|  -2  14    2 |
 ```
 
 [Go to top](#start-of-content)
@@ -135,6 +167,36 @@ MX> (create-matrix :dimensions '(3 3))
 | 0  0  0 |
 | 0  0  0 |
 | 0  0  0 |
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `cofactors`
+
+#### Description
+Calculate matrix of cofactors.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (cofactors (create-matrix :contents '((1 2) (3 4))))
+#<MATRIX SIZE: (2 2)>
+|  4  -3 |
+| -2   1 |
+
+MX> (cofactors (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+#<CLMX-MATRIX::MATRIX SIZE: (3 3)>
+| -10   53  -2 |
+|  -6    9  14 |
+|  10  -15   2 |
 ```
 
 [Go to top](#start-of-content)
