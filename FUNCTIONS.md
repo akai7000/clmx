@@ -232,6 +232,32 @@ MX> (cols
 [Go to top](#start-of-content)
 
 -------------------------------------------------
+### `defmx`
+
+#### Description
+Shortcut - creates matrix based on contents and assigns to var.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+SYMBOL    | var | Name of the variable
+LIST or SIMPLE-ARRAY | contents | Provide either list or array to populate the matrix
+
+#### Returns
+COMMON-LISP:SYMBOL
+
+#### Examples
+```lisp
+MX> (defmx m '((1 2 3) (4 5 6)))
+M
+
+MX> (defmx a #2A ((1 2 3) (4 5 6) (7 8 9)))
+A
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
 ### `det`
 
 #### Description
