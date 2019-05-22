@@ -4,7 +4,6 @@
 - [x] Fix rounding errors on add-scalar
 - [x] Make inverse function work with 3x3 matrices
 - [x] Make inverse function work with large matrices
-- [ ] Fix the formatting of the matrix if it contains fractions
 - [ ] `rotate-right`, `rotate-left`
 - [ ] Write function to multiply matrices cell-by-cell
 - [ ] Implement `diagonal-matrix`
@@ -15,8 +14,9 @@
 - [x] Matrices with random values
 - [ ] Submit CLMX to quicklisp
 - [ ] Improve performance of inverse
-- [ ] Write `matrixp`
-- [ ] Write `matrix-equals-p`
+- [ ] Write `matrixp` to check if the object is a matrix
+- [ ] Write `matrix-equals-p` to compare if matrices are identical
+- [ ] Write `dot` function to calculate dot product
 
 # To-do list for version 0.2
 
@@ -28,6 +28,7 @@
 - [ ] Ability to concatenate matrices
 - [ ] Shift columns right/left 
 - [ ] Shift rows up/down
+- [ ] Fix the formatting of the matrix if it contains fractions
 
 # To-do list for version 0.3
 - [ ] Implement `solve` to solve a system of linear equations
