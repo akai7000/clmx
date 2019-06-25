@@ -17,6 +17,7 @@
 - [ ] Write `matrixp` to check if the object is a matrix
 - [ ] Write `matrix-equals-p` to compare if matrices are identical
 - [ ] Write `dot` function to calculate dot product
+- [ ] Write `norm` function to calculate vector norm -> sqrt(sum(v.^2))
 
 # To-do list for version 0.2
 
@@ -25,6 +26,7 @@
 - [ ] Implement `left-stochastic-matrix-p`
 - [ ] Implement `right-stochastic-matrix-p`
 - [ ] Implement `doubly-stochastic-matrix-p`
+- [ ] Implement `symmetric-matrix-p`
 - [ ] Ability to concatenate matrices
 - [ ] Shift columns right/left 
 - [ ] Shift rows up/down

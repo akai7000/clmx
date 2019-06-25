@@ -62,6 +62,7 @@
            :inverse
            :multiply-matrices
            :multiply-scalar
+		   :random-matrix
            :ref
            :remove-column
            :remove-row

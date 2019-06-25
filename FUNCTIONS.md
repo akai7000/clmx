@@ -236,6 +236,8 @@ MX> (cols
 
 #### Description
 Shortcut - creates matrix based on contents and assigns to var.
+For example, this: (defmx m '((1 2 3) (4 5 6)))
+is the same as this: (defmx m '((1 2 3) (4 5 6)))
 
 #### Arguments
 Data Type | Argument Name | Description
@@ -283,6 +285,34 @@ MX> (det (unit-matrix 3 3))
 MX> (det 
         (create-matrix :contents '((7 -2 3) (1 6 0) (-4 9 2))))
 187
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `eigenvalues`
+
+#### Description
+Calculate the eigenvalues of a square matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+INTEGER
+
+#### Examples
+```lisp
+MX> (eigenvalues
+        (create-matrix :contents '((6 -1) (2 3))))
+5.0
+4.0
+
+MX> (eigenvalues (unit-matrix 2 2))
+2.0
+0.0
 ```
 
 [Go to top](#start-of-content)
@@ -568,6 +598,399 @@ M
 
 MX> (identity-matrix-p m2)
 T
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `inverse`
+
+#### Description
+Calculate the inverse of a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (inverse (create-matrix :contents '((1 2) (3 4))))
+#<MATRIX SIZE: (2 2)>
+| -2.0   1.0 |
+|  1.5  -0.5 |
+
+MX> (inverse (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+#<CLMX-MATRIX::MATRIX SIZE: (3 3)>
+| -0.131579  -0.078947   0.131579 |
+|  0.697368   0.118421  -0.197368 |
+| -0.026316   0.184211   0.026316 |
+
+MX> (inverse (unit-matrix 5 5))
+Inverse does not exist - determinant of matrix is 0.
+   [Condition of type SIMPLE-ERROR]
+
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `multiply-matrices`
+
+#### Description
+Multiply two matrices.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix-1 | Matrix
+MATRIX    | matrix-2 | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (multiply-matrices
+		(create-matrix :contents '((1 2) (3 -4)))
+		(create-matrix :contents '((7 0) (-2 5))))
+#<CLMX-MATRIX::MATRIX SIZE: (2 2)>
+|  3   10 |
+| 29  -20 |
+
+MX> (multiply-matrices
+		(create-matrix :contents '((3 2 0) (-1 0 5)))
+		(create-matrix :contents '((4 -1) (0 2) (8 3))))
+#<CLMX-MATRIX::MATRIX SIZE: (2 2)>
+| 12   1 |
+| 36  16 |
+
+MX> (multiply-matrices
+		(unit-matrix 5 5)
+		(zero-matrix 5 5))
+#<CLMX-MATRIX::MATRIX SIZE: (5 5)>
+| 0  0  0  0  0 |
+| 0  0  0  0  0 |
+| 0  0  0  0  0 |
+| 0  0  0  0  0 |
+| 0  0  0  0  0 |
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `multiply-scalar`
+
+#### Description
+Multiply matrix by a scalar.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix to be multiplied
+NUMBER    | scalar | Scalar to be multiplied
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (multiply-scalar
+		(create-matrix :contents '((1 2) (3 4)))
+		5)
+#<CLMX-MATRIX::MATRIX SIZE: (2 2)>
+|  5.0  10.0 |
+| 15.0  20.0 |
+
+MX> (multiply-scalar
+		(unit-matrix 4 4)
+		7)
+#<CLMX-MATRIX::MATRIX SIZE: (4 4)>
+| 7.0  7.0  7.0  7.0 |
+| 7.0  7.0  7.0  7.0 |
+| 7.0  7.0  7.0  7.0 |
+| 7.0  7.0  7.0  7.0 |
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `random-matrix`
+
+#### Description
+Create a matrix populated with random numbers.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+NUMBER    | rows | Number of rows
+NUMBER    | cols | Number of columns
+NUMBER    | min-num | The smallest random number
+NUMBER    | max-num | The largest random number
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (random-matrix 3 3 100 120)
+#<CLMX-MATRIX::MATRIX SIZE: (3 3)>
+| 119  110  118 |
+| 113  117  114 |
+| 107  109  113 |
+MX> (random-matrix 10 1 1 100)
+#<CLMX-MATRIX::MATRIX SIZE: (1 10)>
+| 77  39  92  71  67  78  51  53  12  19 |
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `ref`
+
+#### Description
+Get a value from a matrix at row 'row' and column 'col'.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+NUMBER    | row | Row of the value
+NUMBER    | col | Column of the value
+
+#### Returns
+NUMBER
+
+#### Examples
+```lisp
+MX> (ref (create-matrix :contents '((5 -2) (2 0))) 1 1)
+5
+
+MX> (ref (unit-matrix 5 5) 2 5)
+1
+
+MX> (ref (create-matrix :contents '((1 2) (3 4))) 0 1)
+Invalid index -1 for (SIMPLE-ARRAY T (2 2)), should be a non-negative integer below 2.
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `XXXXXXXXXXXXXXX`
+
+#### Description
+Calculate the XXXXXXXXXXXXXXX of a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((1 2) (3 4))))
+
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+
+MX> (XXXXXXXXXXXXXXX (unit-matrix 5 5))
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `XXXXXXXXXXXXXXX`
+
+#### Description
+Calculate the XXXXXXXXXXXXXXX of a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((1 2) (3 4))))
+
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+
+MX> (XXXXXXXXXXXXXXX (unit-matrix 5 5))
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `XXXXXXXXXXXXXXX`
+
+#### Description
+Calculate the XXXXXXXXXXXXXXX of a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((1 2) (3 4))))
+
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+
+MX> (XXXXXXXXXXXXXXX (unit-matrix 5 5))
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `XXXXXXXXXXXXXXX`
+
+#### Description
+Calculate the XXXXXXXXXXXXXXX of a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((1 2) (3 4))))
+
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+
+MX> (XXXXXXXXXXXXXXX (unit-matrix 5 5))
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `XXXXXXXXXXXXXXX`
+
+#### Description
+Calculate the XXXXXXXXXXXXXXX of a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((1 2) (3 4))))
+
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+
+MX> (XXXXXXXXXXXXXXX (unit-matrix 5 5))
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `XXXXXXXXXXXXXXX`
+
+#### Description
+Calculate the XXXXXXXXXXXXXXX of a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((1 2) (3 4))))
+
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+
+MX> (XXXXXXXXXXXXXXX (unit-matrix 5 5))
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `XXXXXXXXXXXXXXX`
+
+#### Description
+Calculate the XXXXXXXXXXXXXXX of a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((1 2) (3 4))))
+
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+
+MX> (XXXXXXXXXXXXXXX (unit-matrix 5 5))
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `XXXXXXXXXXXXXXX`
+
+#### Description
+Calculate the XXXXXXXXXXXXXXX of a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((1 2) (3 4))))
+
+MX> (XXXXXXXXXXXXXXX (create-matrix :contents '((3 2 0) (-1 0 5) (10 2 3))))
+
+MX> (XXXXXXXXXXXXXXX (unit-matrix 5 5))
+```
+
+[Go to top](#start-of-content)
+
+TODO:
+Document the following functions:
+```
+
+
+remove-column
+remove-row
+rows
+set-value!
+square-matrix-p
+transpose
+unit-matrix
+zero-matrix
 ```
 
 [Go to top](#start-of-content)

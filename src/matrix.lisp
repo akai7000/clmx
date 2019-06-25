@@ -258,4 +258,5 @@
     `(defparameter ,var (create-matrix :contents ,contents)))
 
 (defun random-matrix (rows cols min-num max-num)
+	"Create a matrix populated with random numbers."
     (create-matrix :contents (clmx-array:random-int-array rows cols min-num max-num)))
