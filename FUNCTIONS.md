@@ -1,7 +1,7 @@
 # Function Reference
 
 [add-matrices](#add-matrices) | [add-scalar](#add-scalar) | [adjugate](#adjugate) | [apply-to-each-cell](#apply-to-each-cell) | [create-matrix](#create-matrix) | [cofactors](#cofactors) | [cols](#cols) | [defmx](#defmx) | [det](#det) | [eigenvalues](#eigenvalues) | [extract-column-as-list](#extract-column-as-list) | [extract-column-as-vector](#extract-column-as-vector) | [extract-row-as-list](#extract-row-as-list) | [extract-row-as-vector](#extract-row-as-vector) | [flip-horizontally](#flip-horizontally) | [flip-vertically](#flip-vertically) | [identity-matrix](#identity-matrix) | [identity-matrix-p](#identity-matrix-p)| [inverse](#inverse) | [multiply-matrices](#multiply-matrices) | [multiply-scalar](#multiply-scalar) | [random-matrix](#random-matrix) | [ref](#ref) | 
-[remove-column](#remove-column) | [remove-row](#remove-row) | [rows](#rows) | [set-value!](#set-value) | [square-matrix-p](#square-matrix-p) | [transpose](#transpose) | [unit-matrix](#unit-matrix) | [zero-matrix](#zero-matrix)
+remove-column | remove-row | rows | set-value! | square-matrix-p | transpose | unit-matrix | zero-matrix
 
 
 ### `add-matrices`
@@ -747,3 +747,31 @@ MX> (random-matrix 10 1 1 100)
 ```
 
 [Go to top](#start-of-content)
+
+-------------------------------------------------
+### `ref`
+
+#### Description
+Get a value from a matrix at row 'row' and column 'col'.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+NUMBER    | row | Row of the value
+NUMBER    | col | Column of the value
+
+#### Returns
+NUMBER
+
+#### Examples
+```lisp
+MX> (ref (create-matrix :contents '((5 -2) (2 0))) 1 1)
+5
+
+MX> (ref (unit-matrix 5 5) 2 5)
+1
+```
+
+[Go to top](#start-of-content)
+
