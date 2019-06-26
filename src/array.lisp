@@ -98,15 +98,6 @@
 (defun random-int-array (height width min-num max-num)
     (let ((diff (- (1+ max-num) min-num)))
          (list-to-array
-             (loop for i from 0 to (1- width) collect
-                 (loop for j from 0 to (1- height) collect
+             (loop for i from 0 to (1- height) collect
+                 (loop for j from 0 to (1- width) collect
                      (+ (random diff) min-num))))))
-                     
-;(clmx-util:fix-rounding (+ (random diff) min-num) precision))))))
-
-;   0  500    random 500           random (500 - 0) - 0
-;-100  300    (random 400) - 100   random (300 - (-100))
-;-200  200    (random 400) - 200   random (200 - (-200))
-;-100  500    (random 600) - 100   random (500 - (-100))
-; -10  200    (random 210) - 10
-

@@ -234,7 +234,7 @@
     (transpose (cofactors matrix)))
 
 (defun inverse (matrix)
-    "Find the inverse of the matrix. Inefficient algorithm for now."
+    "Find the inverse of the matrix."
     (let ((d (det matrix)))
         (if (= d 0)
             (error "Inverse does not exist - determinant of matrix is 0.")
