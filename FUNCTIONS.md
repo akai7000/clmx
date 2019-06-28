@@ -1,7 +1,7 @@
 # Function Reference
 
 [add-matrices](#add-matrices) | [add-scalar](#add-scalar) | [adjugate](#adjugate) | [apply-to-each-cell](#apply-to-each-cell) | [create-matrix](#create-matrix) | [cofactors](#cofactors) | [cols](#cols) | [defmx](#defmx) | [det](#det) | [eigenvalues](#eigenvalues) | [extract-column-as-list](#extract-column-as-list) | [extract-column-as-vector](#extract-column-as-vector) | [extract-row-as-list](#extract-row-as-list) | [extract-row-as-vector](#extract-row-as-vector) | [flip-horizontally](#flip-horizontally) | [flip-vertically](#flip-vertically) | [identity-matrix](#identity-matrix) | [identity-matrix-p](#identity-matrix-p)| [inverse](#inverse) | [multiply-matrices](#multiply-matrices) | [multiply-scalar](#multiply-scalar) | [random-matrix](#random-matrix) | [ref](#ref) | 
-[remove-column](#remove-column) | [remove-row](#remove-row) | rows | set-value! | square-matrix-p | transpose | unit-matrix | zero-matrix
+[remove-column](#remove-column) | [remove-row](#remove-row) | [rows](#rows) | set-value! | square-matrix-p | transpose | unit-matrix | zero-matrix
 
 
 ### `add-matrices`
@@ -830,6 +830,36 @@ MX> (remove-row (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9))) 2)
 MX> (remove-row (create-matrix :contents '((1) (2))) 1)
 #<CLMX-MATRIX::MATRIX SIZE: (1 1)>
 | 2 |
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `rows`
+
+#### Description
+Get the number of rows of a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+
+#### Returns
+INTEGER
+
+#### Examples
+```lisp
+MX> (rows 
+        (create-matrix :dimensions '(100 50) :initial-element 3))
+100
+
+MX> (rows (zero-matrix 15 20))
+15
+
+MX> (rows 
+        (create-matrix :contents '((1 2 3 4 5) (6 7 8 9 10))))
+2
 ```
 
 [Go to top](#start-of-content)
