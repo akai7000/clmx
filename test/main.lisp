@@ -274,11 +274,23 @@
     
 (test test-remove-column
     "Testing remove-column."
-    (is (= 0 0)))
-    
+	(let ((a (remove-column (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9))) 2)))
+	(is (= (ref a 1 1) 1))
+	(is (= (ref a 1 2) 3))
+	(is (= (ref a 2 1) 4))
+	(is (= (ref a 2 2) 6))
+	(is (= (ref a 3 1) 7))
+	(is (= (ref a 3 2) 9))))
+	
 (test test-remove-row
     "Testing remove-row."
-    (is (= 0 0)))
+	(let ((a (remove-row (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9))) 2)))
+	(is (= (ref a 1 1) 1))
+	(is (= (ref a 1 2) 2))
+	(is (= (ref a 1 3) 3))
+	(is (= (ref a 2 1) 7))
+	(is (= (ref a 2 2) 8))
+	(is (= (ref a 2 3) 9))))
 
 (test test-rows
     "Testing rows."

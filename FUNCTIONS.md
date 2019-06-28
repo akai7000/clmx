@@ -1,7 +1,7 @@
 # Function Reference
 
 [add-matrices](#add-matrices) | [add-scalar](#add-scalar) | [adjugate](#adjugate) | [apply-to-each-cell](#apply-to-each-cell) | [create-matrix](#create-matrix) | [cofactors](#cofactors) | [cols](#cols) | [defmx](#defmx) | [det](#det) | [eigenvalues](#eigenvalues) | [extract-column-as-list](#extract-column-as-list) | [extract-column-as-vector](#extract-column-as-vector) | [extract-row-as-list](#extract-row-as-list) | [extract-row-as-vector](#extract-row-as-vector) | [flip-horizontally](#flip-horizontally) | [flip-vertically](#flip-vertically) | [identity-matrix](#identity-matrix) | [identity-matrix-p](#identity-matrix-p)| [inverse](#inverse) | [multiply-matrices](#multiply-matrices) | [multiply-scalar](#multiply-scalar) | [random-matrix](#random-matrix) | [ref](#ref) | 
-remove-column | remove-row | rows | set-value! | square-matrix-p | transpose | unit-matrix | zero-matrix
+[remove-column](#remove-column) | [remove-row](#remove-row) | rows | set-value! | square-matrix-p | transpose | unit-matrix | zero-matrix
 
 
 ### `add-matrices`
@@ -775,3 +775,61 @@ MX> (ref (unit-matrix 5 5) 2 5)
 
 [Go to top](#start-of-content)
 
+-------------------------------------------------
+### `remove-column`
+
+#### Description
+Remove column 'col-num' from a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+NUMBER    | col-num | Column to be removed
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (remove-column (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9))) 2)
+#<CLMX-MATRIX::MATRIX SIZE: (3 2)>
+| 1  3 |
+| 4  6 |
+| 7  9 |
+
+MX> (remove-column (create-matrix :contents '((1 2))) 1)
+#<CLMX-MATRIX::MATRIX SIZE: (1 1)>
+| 2 |
+```
+
+[Go to top](#start-of-content)
+
+-------------------------------------------------
+### `remove-row`
+
+#### Description
+Remove row 'row-num' from a matrix.
+
+#### Arguments
+Data Type | Argument Name | Description
+--------- | ------------- | -----------
+MATRIX    | matrix | Matrix
+NUMBER    | row-num | Row to be removed
+
+#### Returns
+MATRIX
+
+#### Examples
+```lisp
+MX> (remove-row (create-matrix :contents '((1 2 3) (4 5 6) (7 8 9))) 2)
+#<CLMX-MATRIX::MATRIX SIZE: (2 3)>
+| 1  2  3 |
+| 7  8  9 |
+
+MX> (remove-row (create-matrix :contents '((1) (2))) 1)
+#<CLMX-MATRIX::MATRIX SIZE: (1 1)>
+| 2 |
+```
+
+[Go to top](#start-of-content)
